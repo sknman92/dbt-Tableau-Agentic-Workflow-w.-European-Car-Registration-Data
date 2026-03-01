@@ -102,10 +102,18 @@ flowchart LR
 
 - Windows + PowerShell
 - Python virtual environment in `.venv`
-- Node.js (required for `tableau-mcp`)
+- Node.js (required only for `tableau-mcp/`)
+- dbt Core in project `.venv` (required)
+- dbt MCP server runtime (`uvx` in `.venv/Scripts/uvx.exe`, configured in `.vscode/mcp.json`)
 - Snowflake credentials in root `.env`
 - Tableau credentials for publishing in root `.env`
 - Tableau MCP credentials in `.vscode/.env`
+
+### dbt Core vs Fusion
+
+- This project is designed to run with **dbt Core CLI** from `.venv`.
+- For Python model execution, prefer Core CLI (`../.venv/Scripts/dbt.exe`) over Fusion CLI in this repo.
+- dbt MCP is used for AI-driven dbt operations (for example codegen/docs/lineage workflows), while Core CLI remains the reliable execution path for builds in this project.
 
 ## Environment Configuration
 
@@ -151,6 +159,13 @@ Set-Location "tableau-mcp"
 npm install
 npm run build
 Set-Location ".."
+```
+
+Verify dbt Core + dbt MCP prerequisites:
+
+```powershell
+& "./.venv/Scripts/dbt.exe" --version
+& "./.venv/Scripts/uvx.exe" --version
 ```
 
 ## End-to-End Runbook
@@ -258,6 +273,7 @@ Example artifacts:
 ## Notes and Gotchas
 
 - Use dbt Core CLI from project `.venv` for Python model support.
+- dbt MCP does not replace dbt execution; keep using Core CLI for `dbt build` in this repository.
 - After MCP config edits, reload VS Code window to ensure MCP restarts with new environment.
 
 ## Useful Commands
