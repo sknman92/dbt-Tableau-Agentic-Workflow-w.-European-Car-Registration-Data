@@ -1,0 +1,15 @@
+.env
+dbt/dbt_internal_packages/
+dbt/dbt_packages/
+.venv/
+target/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.vscode/.env
+tableau-mcp/
+PDFs/
+package-lock.json
+package.json

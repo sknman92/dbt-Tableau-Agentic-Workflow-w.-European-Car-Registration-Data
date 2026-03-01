@@ -1,0 +1,23 @@
+{
+  "servers": {
+    "dbt": {
+      "command": "C:/Users/CharlesYi/Documents/GitHub/Agentic Workflow Project_7.2.26/.venv/Scripts/uvx.exe",
+      "args": ["dbt-mcp"],
+      "env": {
+        "DBT_PROJECT_DIR": "C:/Users/CharlesYi/Documents/GitHub/Agentic Workflow Project_7.2.26/dbt",
+        "DBT_PATH": "C:\\Users\\CharlesYi\\Documents\\GitHub\\Agentic Workflow Project_7.2.26\\.venv\\Scripts\\dbt.exe",
+        "DISABLE_DBT_CODEGEN": "false"
+      }
+    },
+    "tableau": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".vscode/start-tableau-mcp.ps1"
+      ]
+    }
+  }
+}

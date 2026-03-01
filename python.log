@@ -1,0 +1,183 @@
+2026-02-23 15:31:40,105 - INFO - root - Starting Tableau datasource publish workflow...
+2026-02-23 15:31:40,106 - INFO - root - Connecting to Snowflake...
+2026-02-23 15:31:40,107 - INFO - snowflake.connector.connection - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0
+2026-02-23 15:31:40,108 - INFO - snowflake.connector.connection - Connecting to GLOBAL Snowflake domain
+2026-02-23 15:31:40,435 - WARNING - botocore.credentials - Refreshing temporary credentials failed during mandatory refresh period.
+Traceback (most recent call last):
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 600, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 750, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 760, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 2328, in _get_credentials
+    raise UnauthorizedSSOTokenError()
+botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session run aws sso login with the corresponding profile.
+2026-02-23 15:31:41,731 - INFO - root - Snowflake connection successful
+2026-02-23 15:31:41,731 - INFO - root - Fetching MARTS_ACEA_METRICS data...
+2026-02-23 15:31:43,088 - INFO - root - Fetched 27828 rows
+2026-02-23 15:31:43,089 - INFO - root - Hyper directory ready: hyper_files
+2026-02-23 15:31:43,089 - INFO - root - Creating hyper file: hyper_files/marts_acea.hyper
+2026-02-23 15:31:43,631 - ERROR - root - Error in create_hyper: [WinError 32] The process cannot access the file because it is being used by another process
+2026-02-23 15:31:43,632 - ERROR - root - Workflow failed: [WinError 32] The process cannot access the file because it is being used by another process
+2026-02-23 15:32:07,341 - INFO - root - Starting Tableau datasource publish workflow...
+2026-02-23 15:32:07,341 - INFO - root - Connecting to Snowflake...
+2026-02-23 15:32:07,341 - INFO - snowflake.connector.connection - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0
+2026-02-23 15:32:07,341 - INFO - snowflake.connector.connection - Connecting to GLOBAL Snowflake domain
+2026-02-23 15:32:07,623 - WARNING - botocore.credentials - Refreshing temporary credentials failed during mandatory refresh period.
+Traceback (most recent call last):
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 600, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 750, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 760, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 2328, in _get_credentials
+    raise UnauthorizedSSOTokenError()
+botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session run aws sso login with the corresponding profile.
+2026-02-23 15:32:08,877 - INFO - root - Snowflake connection successful
+2026-02-23 15:32:08,877 - INFO - root - Fetching MARTS_ACEA_METRICS data...
+2026-02-23 15:32:09,976 - INFO - root - Fetched 27828 rows
+2026-02-23 15:32:09,977 - INFO - root - Hyper directory ready: hyper_files
+2026-02-23 15:32:09,977 - INFO - root - Creating hyper file: hyper_files/marts_acea.hyper
+2026-02-23 15:32:10,142 - ERROR - root - Error in create_hyper: unable to drop database: Hyper was unable to delete the file: DatabaseId: "hyper.file:hyper_files/marts_acea.hyper"
+Context: 0xfa6b0e2f
+2026-02-23 15:32:10,143 - ERROR - root - Workflow failed: unable to drop database: Hyper was unable to delete the file: DatabaseId: "hyper.file:hyper_files/marts_acea.hyper"
+Context: 0xfa6b0e2f
+2026-02-23 15:32:28,825 - INFO - root - Starting Tableau datasource publish workflow...
+2026-02-23 15:32:28,825 - INFO - root - Connecting to Snowflake...
+2026-02-23 15:32:28,827 - INFO - snowflake.connector.connection - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0
+2026-02-23 15:32:28,828 - INFO - snowflake.connector.connection - Connecting to GLOBAL Snowflake domain
+2026-02-23 15:32:29,189 - WARNING - botocore.credentials - Refreshing temporary credentials failed during mandatory refresh period.
+Traceback (most recent call last):
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 600, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 750, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 760, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 2328, in _get_credentials
+    raise UnauthorizedSSOTokenError()
+botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session run aws sso login with the corresponding profile.
+2026-02-23 15:32:30,339 - INFO - root - Snowflake connection successful
+2026-02-23 15:32:30,339 - INFO - root - Fetching MARTS_ACEA_METRICS data...
+2026-02-23 15:32:31,439 - INFO - root - Fetched 27828 rows
+2026-02-23 15:32:31,439 - INFO - root - Hyper directory ready: hyper_files
+2026-02-23 15:32:31,439 - INFO - root - Creating hyper file: hyper_files/marts_acea.hyper
+2026-02-23 15:32:32,020 - INFO - root - Hyper file created successfully
+2026-02-23 15:32:32,287 - INFO - root - Snowflake connection closed
+2026-02-23 15:32:32,289 - INFO - root - Connecting to Tableau Server...
+2026-02-23 15:32:33,106 - ERROR - root - Error uploading to Tableau: Failed Sign In Error: 
+
+	401001: Signin Error
+		Error signing in to Tableau Server
+2026-02-23 15:32:33,106 - ERROR - root - Workflow failed: Failed Sign In Error: 
+
+	401001: Signin Error
+		Error signing in to Tableau Server
+2026-02-23 15:33:54,311 - INFO - root - Starting Tableau datasource publish workflow...
+2026-02-23 15:33:54,311 - INFO - root - Connecting to Snowflake...
+2026-02-23 15:33:54,313 - INFO - snowflake.connector.connection - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0
+2026-02-23 15:33:54,313 - INFO - snowflake.connector.connection - Connecting to GLOBAL Snowflake domain
+2026-02-23 15:33:54,585 - WARNING - botocore.credentials - Refreshing temporary credentials failed during mandatory refresh period.
+Traceback (most recent call last):
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 600, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 750, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 760, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 2328, in _get_credentials
+    raise UnauthorizedSSOTokenError()
+botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session run aws sso login with the corresponding profile.
+2026-02-23 15:33:55,694 - INFO - root - Snowflake connection successful
+2026-02-23 15:33:55,694 - INFO - root - Fetching MARTS_ACEA_METRICS data...
+2026-02-23 15:33:56,741 - INFO - root - Fetched 27828 rows
+2026-02-23 15:33:56,741 - INFO - root - Hyper directory ready: hyper_files
+2026-02-23 15:33:56,741 - INFO - root - Creating hyper file: hyper_files/marts_acea.hyper
+2026-02-23 15:33:57,258 - INFO - root - Hyper file created successfully
+2026-02-23 15:33:57,527 - INFO - root - Snowflake connection closed
+2026-02-23 15:33:57,527 - INFO - root - Connecting to Tableau Server...
+2026-02-23 15:33:58,426 - INFO - TSC - Signed into https://tableauserver.theinformationlab.co.uk/ as user with id eda97a57-9ed7-4f72-a9d8-189e42a23c42
+2026-02-23 15:33:58,426 - INFO - root - Signed in to Tableau Server
+2026-02-23 15:33:58,426 - INFO - root - Uploading datasource to Tableau...
+2026-02-23 15:33:58,441 - INFO - TSC - Publishing marts_acea.hyper to server
+2026-02-23 15:33:58,562 - INFO - TSC - Signed out
+2026-02-23 15:33:58,562 - ERROR - root - Error uploading to Tableau: 'list' object has no attribute 'password'
+2026-02-23 15:33:58,562 - ERROR - root - Workflow failed: 'list' object has no attribute 'password'
+2026-02-23 15:34:15,453 - INFO - root - Starting Tableau datasource publish workflow...
+2026-02-23 15:34:15,454 - INFO - root - Connecting to Snowflake...
+2026-02-23 15:34:15,455 - INFO - snowflake.connector.connection - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0
+2026-02-23 15:34:15,455 - INFO - snowflake.connector.connection - Connecting to GLOBAL Snowflake domain
+2026-02-23 15:34:15,762 - WARNING - botocore.credentials - Refreshing temporary credentials failed during mandatory refresh period.
+Traceback (most recent call last):
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 600, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 750, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 760, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 2328, in _get_credentials
+    raise UnauthorizedSSOTokenError()
+botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session run aws sso login with the corresponding profile.
+2026-02-23 15:34:17,247 - INFO - root - Snowflake connection successful
+2026-02-23 15:34:17,247 - INFO - root - Fetching MARTS_ACEA_METRICS data...
+2026-02-23 15:34:18,364 - INFO - root - Fetched 27828 rows
+2026-02-23 15:34:18,364 - INFO - root - Hyper directory ready: hyper_files
+2026-02-23 15:34:18,365 - INFO - root - Creating hyper file: hyper_files/marts_acea.hyper
+2026-02-23 15:34:19,013 - INFO - root - Hyper file created successfully
+2026-02-23 15:34:19,327 - INFO - root - Snowflake connection closed
+2026-02-23 15:34:19,330 - INFO - root - Connecting to Tableau Server...
+2026-02-23 15:34:20,327 - INFO - TSC - Signed into https://tableauserver.theinformationlab.co.uk/ as user with id eda97a57-9ed7-4f72-a9d8-189e42a23c42
+2026-02-23 15:34:20,328 - INFO - root - Signed in to Tableau Server
+2026-02-23 15:34:20,329 - INFO - root - Uploading datasource to Tableau...
+2026-02-23 15:34:20,330 - INFO - TSC - Publishing marts_acea.hyper to server
+2026-02-23 15:34:21,185 - INFO - TSC - Signed out
+2026-02-23 15:34:21,186 - ERROR - root - Error uploading to Tableau: 
+
+	404005: Resource Not Found
+		Project “3320” could not be found.
+2026-02-23 15:34:21,189 - ERROR - root - Workflow failed: 
+
+	404005: Resource Not Found
+		Project “3320” could not be found.
+2026-02-23 16:12:13,662 - INFO - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0
+2026-02-23 16:12:13,662 - INFO - Connecting to GLOBAL Snowflake domain
+2026-02-23 16:12:14,012 - WARNING - Refreshing temporary credentials failed during mandatory refresh period.
+Traceback (most recent call last):
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 600, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 750, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 760, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 2328, in _get_credentials
+    raise UnauthorizedSSOTokenError()
+botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session run aws sso login with the corresponding profile.
+2026-02-23 16:12:16,451 - INFO - Data read from Snowflake: 27828 rows, 6 columns
+2026-02-23 16:12:18,338 - INFO - versions: 3.27, 2.4
+2026-02-23 16:12:18,546 - INFO - Signed into https://tableauserver.theinformationlab.co.uk/ as user with id eda97a57-9ed7-4f72-a9d8-189e42a23c42
+2026-02-23 16:12:18,546 - INFO - Querying all projects on site
+2026-02-23 16:12:18,718 - INFO - Project retrieved: Charles
+2026-02-23 16:12:18,718 - INFO - Publishing marts_acea.hyper to server
+2026-02-23 16:12:20,927 - INFO - Published marts_acea.hyper (ID: 72aa7c33-63e2-45cc-aa6d-15ed24e91cb6)
+2026-02-23 16:12:20,928 - INFO - Datasource published to project: Charles
+2026-02-23 16:12:21,043 - INFO - Signed out

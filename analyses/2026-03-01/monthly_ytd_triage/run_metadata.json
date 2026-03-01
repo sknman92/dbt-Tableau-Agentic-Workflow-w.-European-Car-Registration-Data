@@ -1,0 +1,27 @@
+{
+  "run_timestamp": "2026-03-01T13:37:17.338407",
+  "user_identifier": "CharlesYi",
+  "topic": "monthly_ytd_triage",
+  "input_csv": "C:/Users/CharlesYi/Documents/GitHub/Agentic Workflow Project_7.2.26/analyses/monthly_ytd_units_sold_per_manufacturer.csv",
+  "artifacts": {
+    "dataset_csv": "C:/Users/CharlesYi/Documents/GitHub/Agentic Workflow Project_7.2.26/analyses/triage_runs/CharlesYi/2026-03-01_133717_monthly_ytd_triage/monthly_ytd_units_sold_per_manufacturer.csv",
+    "all_manufacturers_plot": "C:/Users/CharlesYi/Documents/GitHub/Agentic Workflow Project_7.2.26/analyses/triage_runs/CharlesYi/2026-03-01_133717_monthly_ytd_triage/monthly_ytd_units_all_manufacturers.png",
+    "top_manufacturers_plot": "C:/Users/CharlesYi/Documents/GitHub/Agentic Workflow Project_7.2.26/analyses/triage_runs/CharlesYi/2026-03-01_133717_monthly_ytd_triage/monthly_ytd_units_top12_manufacturers.png"
+  },
+  "query_context": {
+    "measure": "YTD",
+    "frequency": "M",
+    "aggregation": "SUM(Value)",
+    "grouping": [
+      "MANUFACTURER",
+      "TRUNC_MONTH(DATE)"
+    ]
+  },
+  "data_profile": {
+    "rows": 1546,
+    "manufacturers": 45,
+    "month_start": "2023-02-01",
+    "month_end": "2025-12-01",
+    "top_n": 12
+  }
+}

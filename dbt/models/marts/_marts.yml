@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: marts_acea_metrics
+    description: "Mart layer with aggregated ACEA metrics by manufacturer, region, frequency, and date"
+    columns:
+      - name: manufacturer
+        data_type: varchar
+        description: "Manufacturer name"
+        tests:
+          - not_null
+
+      - name: region
+        data_type: varchar
+        description: "Geographic region"
+        tests:
+          - not_null
+
+      - name: frequency
+        data_type: varchar
+        description: "Production frequency"
+        tests:
+          - not_null
+
+      - name: date
+        data_type: timestamp_ntz
+        description: "Reporting date"
+        tests:
+          - not_null
+
+      - name: measure
+        data_type: varchar
+        description: "Metric name (UNITS, YTD, TTM, PoP, YoY variants)"
+
+      - name: value
+        data_type: float
+        description: "Metric value"

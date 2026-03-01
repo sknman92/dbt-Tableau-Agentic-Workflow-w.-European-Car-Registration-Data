@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: dbt_cyi_acea
+    database: til_data_engineering
+    tables:
+      - name: acea_data
+        columns:
+          - name: manufacturer
+            data_type: varchar
+          - name: frequency
+            data_type: varchar
+          - name: month
+            data_type: varchar
+          - name: units
+            data_type: float
+          - name: region
+            data_type: varchar
+          - name: pdf
+            data_type: varchar
+            description: "the name of the PDF file from which the data was extracted. needed for de-duping"
+          - name: inserted_at
+            data_type: varchar

@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_acea_data
+    description: "Staging layer for ACEA manufacturer data with deduplication by source PDF"
+    columns:
+      - name: region
+        data_type: varchar
+        description: "Geographic region"
+        tests:
+          - not_null
+
+      - name: manufacturer
+        data_type: varchar
+        description: "Manufacturer name"
+        tests:
+          - not_null
+
+      - name: frequency
+        data_type: varchar
+        description: "metric frequency (e.g., YTD, M)"
+        tests:
+          - not_null
+
+      - name: month
+        data_type: varchar
+        description: "Reporting month (MMM-YY format)"
+        tests:
+          - not_null
+
+      - name: units
+        data_type: float
+        description: "Production units"
+
+      - name: pdf_name
+        data_type: varchar
+        description: "Source PDF month (e.g., Oct-25) for tracking deduplication"
+        tests:
+          - not_null
+
+      - name: inserted_at
+        data_type: varchar
+        description: "Timestamp when record was inserted"
+        tests:
+          - not_null

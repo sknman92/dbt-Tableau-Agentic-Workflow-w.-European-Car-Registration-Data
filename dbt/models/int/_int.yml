@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: int_acea_data
+    description: "Intermediate layer with deduplicated ACEA data and surrogate key"
+    columns:
+      - name: region
+        data_type: varchar
+        description: "Geographic region"
+        tests:
+          - not_null
+
+      - name: manufacturer
+        data_type: varchar
+        description: "Manufacturer name"
+        tests:
+          - not_null
+
+      - name: frequency
+        data_type: varchar
+        description: "Production frequency"
+        tests:
+          - not_null
+
+      - name: month
+        data_type: varchar
+        description: "Reporting month (MMM-YY format)"
+        tests:
+          - not_null
+
+      - name: units
+        data_type: float
+        description: "Production units (deduped to latest PDF)"
+        tests:
+          - not_null
+
+      - name: pdf_name
+        data_type: varchar
+        description: "Source PDF month"
+        tests:
+          - not_null
+
+      - name: inserted_at
+        data_type: varchar
+        description: "Timestamp when record was inserted"
+        tests:
+          - not_null
+
+      - name: id
+        data_type: varchar
+        description: "Surrogate key (MD5 hash of manufacturer, month, frequency, region)"
+        tests:
+          - unique
+          - not_null
