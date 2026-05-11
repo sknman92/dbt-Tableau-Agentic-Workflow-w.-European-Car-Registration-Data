@@ -1,0 +1,36 @@
+{
+  "run_date": "2026-03-02",
+  "run_title": "top_bottom5_manufacturers_monthly_last5y",
+  "generated_at": "2026-03-02",
+  "datasource": {
+    "name": "marts_acea",
+    "luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+    "project": "Charles"
+  },
+  "common_filters": {
+    "Measure": ["UNITS"],
+    "FREQUENCY": ["M"],
+    "REGION": ["EU + EFTA + UK"],
+    "DATE_RANGE": {
+      "minDate": "2021-03-02",
+      "maxDate": "2026-03-02"
+    }
+  },
+  "queries": {
+    "top5": {
+      "selector": "TOP 5 MANUFACTURER by SUM(Value)",
+      "grouping": ["TRUNC_MONTH(DATE)", "MANUFACTURER"]
+    },
+    "bottom5": {
+      "selector": "BOTTOM 5 MANUFACTURER by SUM(Value)",
+      "grouping": ["TRUNC_MONTH(DATE)", "MANUFACTURER"]
+    }
+  },
+  "artifacts": {
+    "top5_csv": "query_top5_monthly.csv",
+    "bottom5_csv": "query_bottom5_monthly.csv",
+    "top5_chart_png": "plot_top5_manufacturers_monthly_bar.png",
+    "bottom5_chart_png": "plot_bottom5_manufacturers_monthly_bar.png",
+    "combined_chart_png": "plot_top_bottom5_manufacturers_monthly_combined.png"
+  }
+}

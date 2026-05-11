@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-05-10T23:36:53.747963",
+  "datasource_luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+  "query_summary": "Top 5 manufacturers by total registrations (SUM of Value), sorted descending.",
+  "filters": "TOP 5 by SUM(Value); Jaguar excluded due to Infinity data anomaly.",
+  "notes": "Jaguar returned an Infinity value and was excluded from the chart. Only 4 valid manufacturers were retained."
+}

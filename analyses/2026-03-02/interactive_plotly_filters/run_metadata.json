@@ -1,0 +1,26 @@
+{
+  "run_date": "2026-03-02",
+  "run_title": "interactive_plotly_filters",
+  "generated_at": "2026-03-02",
+  "datasource": {
+    "name": "marts_acea",
+    "luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+    "project": "Charles"
+  },
+  "query_filters": {
+    "Measure": ["UNITS", "YTD", "TTM"],
+    "Frequency_source": ["M"],
+    "Date_range": {
+      "minDate": "2021-03-02",
+      "maxDate": "2026-03-02"
+    }
+  },
+  "derived_logic": {
+    "Frequency_Q": "Derived by quarterly aggregation from monthly source data"
+  },
+  "dashboard_filters": ["Region", "Manufacturer", "Measure", "Frequency"],
+  "artifacts": {
+    "dataset_csv": "query_interactive_dataset.csv",
+    "interactive_html": "interactive_plotly_filters.html"
+  }
+}

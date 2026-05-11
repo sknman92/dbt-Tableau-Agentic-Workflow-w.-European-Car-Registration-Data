@@ -1,0 +1,176 @@
+Month,Manufacturer,TTM
+2023-02,Hyundai Group,77349
+2023-02,Renault Group,91298
+2023-02,Stellantis,167180
+2023-02,Volkswagen,96864
+2023-02,Volkswagen Group,235404
+2023-03,Hyundai Group,196698
+2023-03,Renault Group,211650
+2023-03,Stellantis,417853
+2023-03,Volkswagen,234950
+2023-03,Volkswagen Group,582210
+2023-04,Hyundai Group,316047
+2023-04,Renault Group,332002
+2023-04,Stellantis,668526
+2023-04,Volkswagen,373036
+2023-04,Volkswagen Group,929016
+2023-05,Hyundai Group,412964
+2023-05,Renault Group,442234
+2023-05,Stellantis,859132
+2023-05,Volkswagen,492164
+2023-05,Volkswagen Group,1220129
+2023-06,Hyundai Group,519505
+2023-06,Renault Group,575244
+2023-06,Stellantis,1068851
+2023-06,Volkswagen,630738
+2023-06,Volkswagen Group,1547420
+2023-07,Hyundai Group,626046
+2023-07,Renault Group,708254
+2023-07,Stellantis,1278570
+2023-07,Volkswagen,769312
+2023-07,Volkswagen Group,1874711
+2023-08,Hyundai Group,732587
+2023-08,Renault Group,841264
+2023-08,Stellantis,1488289
+2023-08,Volkswagen,907886
+2023-08,Volkswagen Group,2202002
+2023-09,Hyundai Group,839128
+2023-09,Renault Group,974274
+2023-09,Stellantis,1698008
+2023-09,Volkswagen,1046460
+2023-09,Volkswagen Group,2529293
+2023-10,Hyundai Group,945669
+2023-10,Renault Group,1107284
+2023-10,Stellantis,1907727
+2023-10,Volkswagen,1185034
+2023-10,Volkswagen Group,2856584
+2023-11,Hyundai Group,1052210
+2023-11,Renault Group,1240294
+2023-11,Stellantis,2117446
+2023-11,Volkswagen,1323608
+2023-11,Volkswagen Group,3183875
+2023-12,Hyundai Group,1129226
+2023-12,Renault Group,1351874
+2023-12,Stellantis,2252525
+2023-12,Volkswagen,1439829
+2023-12,Volkswagen Group,3457276
+2024-01,Hyundai Group,1215766
+2024-01,Renault Group,1444771
+2024-01,Stellantis,2435844
+2024-01,Volkswagen,1536646
+2024-01,Volkswagen Group,3712116
+2024-02,Hyundai Group,1217589
+2024-02,Renault Group,1450126
+2024-02,Stellantis,2454815
+2024-02,Volkswagen,1536344
+2024-02,Volkswagen Group,3725359
+2024-03,Hyundai Group,1210811
+2024-03,Renault Group,1453403
+2024-03,Stellantis,2432916
+2024-03,Volkswagen,1528703
+2024-03,Volkswagen Group,3703450
+2024-04,Hyundai Group,1182976
+2024-04,Renault Group,1442393
+2024-04,Stellantis,2348932
+2024-04,Volkswagen,1514694
+2024-04,Volkswagen Group,3653224
+2024-05,Hyundai Group,1178255
+2024-05,Renault Group,1438731
+2024-05,Stellantis,2332295
+2024-05,Volkswagen,1515707
+2024-05,Volkswagen Group,3658557
+2024-06,Hyundai Group,1174049
+2024-06,Renault Group,1448637
+2024-06,Stellantis,2328934
+2024-06,Volkswagen,1522547
+2024-06,Volkswagen Group,3676363
+2024-07,Hyundai Group,1161442
+2024-07,Renault Group,1411411
+2024-07,Stellantis,2272286
+2024-07,Volkswagen,1493300
+2024-07,Volkswagen Group,3623731
+2024-08,Hyundai Group,1148835
+2024-08,Renault Group,1374185
+2024-08,Stellantis,2215638
+2024-08,Volkswagen,1464053
+2024-08,Volkswagen Group,3571099
+2024-09,Hyundai Group,1136228
+2024-09,Renault Group,1336959
+2024-09,Stellantis,2158990
+2024-09,Volkswagen,1434806
+2024-09,Volkswagen Group,3518467
+2024-10,Hyundai Group,1112421
+2024-10,Renault Group,1306558
+2024-10,Stellantis,2099707
+2024-10,Volkswagen,1412553
+2024-10,Volkswagen Group,3480963
+2024-11,Hyundai Group,1085609
+2024-11,Renault Group,1285240
+2024-11,Stellantis,2032610
+2024-11,Volkswagen,1392707
+2024-11,Volkswagen Group,3441369
+2024-12,Hyundai Group,1087478
+2024-12,Renault Group,1303626
+2024-12,Stellantis,2023756
+2024-12,Volkswagen,1389290
+2024-12,Volkswagen Group,3446897
+2025-01,Hyundai Group,1084235
+2025-01,Renault Group,1308639
+2025-01,Stellantis,1994516
+2025-01,Volkswagen,1405317
+2025-01,Volkswagen Group,3460466
+2025-02,Hyundai Group,1078357
+2025-02,Renault Group,1319120
+2025-02,Stellantis,1964335
+2025-02,Volkswagen,1412436
+2025-02,Volkswagen Group,3461692
+2025-03,Hyundai Group,1076500
+2025-03,Renault Group,1335136
+2025-03,Stellantis,1950751
+2025-03,Volkswagen,1428949
+2025-03,Volkswagen Group,3495005
+2025-04,Hyundai Group,1074876
+2025-04,Renault Group,1336307
+2025-04,Stellantis,1949888
+2025-04,Volkswagen,1426826
+2025-04,Volkswagen Group,3495294
+2025-05,Hyundai Group,1072570
+2025-05,Renault Group,1340250
+2025-05,Stellantis,1941745
+2025-05,Volkswagen,1428639
+2025-05,Volkswagen Group,3495717
+2025-06,Hyundai Group,1063686
+2025-06,Renault Group,1339449
+2025-06,Stellantis,1916294
+2025-06,Volkswagen,1415317
+2025-06,Volkswagen Group,3474499
+2025-07,Hyundai Group,1061571
+2025-07,Renault Group,1347859
+2025-07,Stellantis,1914614
+2025-07,Volkswagen,1430454
+2025-07,Volkswagen Group,3506383
+2025-08,Hyundai Group,1059456
+2025-08,Renault Group,1356269
+2025-08,Stellantis,1912934
+2025-08,Volkswagen,1445591
+2025-08,Volkswagen Group,3538267
+2025-09,Hyundai Group,1057341
+2025-09,Renault Group,1364679
+2025-09,Stellantis,1911254
+2025-09,Volkswagen,1460728
+2025-09,Volkswagen Group,3570151
+2025-10,Hyundai Group,1056147
+2025-10,Renault Group,1375518
+2025-10,Stellantis,1918168
+2025-10,Volkswagen,1466646
+2025-10,Volkswagen Group,3588872
+2025-11,Hyundai Group,1056319
+2025-11,Renault Group,1378867
+2025-11,Stellantis,1914293
+2025-11,Volkswagen,1467544
+2025-11,Volkswagen Group,3600577
+2025-12,Hyundai Group,1060687
+2025-12,Renault Group,1376057
+2025-12,Stellantis,1919942
+2025-12,Volkswagen,1478381
+2025-12,Volkswagen Group,3628945

@@ -1,0 +1,37 @@
+{
+  "run_date": "2026-03-02",
+  "run_title": "top_bottom5_monthly_units_with_ttm_overlay",
+  "generated_at": "2026-03-02",
+  "datasource": {
+    "name": "marts_acea",
+    "luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+    "project": "Charles"
+  },
+  "common_filters": {
+    "FREQUENCY": ["M"],
+    "REGION": ["EU + EFTA + UK"],
+    "DATE_RANGE": {
+      "minDate": "2021-03-02",
+      "maxDate": "2026-03-02"
+    }
+  },
+  "queries": {
+    "top5_units": "Measure=UNITS, TOP 5 MANUFACTURER by SUM(Value), grouped by TRUNC_MONTH(DATE), MANUFACTURER",
+    "top5_ttm": "Measure=TTM, TOP 5 MANUFACTURER by SUM(Value), grouped by TRUNC_MONTH(DATE), MANUFACTURER",
+    "bottom5_units": "Measure=UNITS, BOTTOM 5 MANUFACTURER by SUM(Value), grouped by TRUNC_MONTH(DATE), MANUFACTURER",
+    "bottom5_ttm": "Measure=TTM, BOTTOM 5 MANUFACTURER by SUM(Value), grouped by TRUNC_MONTH(DATE), MANUFACTURER"
+  },
+  "overlay_definition": {
+    "bars": "Monthly Units Sold (stacked by manufacturer)",
+    "line": "Monthly total TTM across selected manufacturers (dashed black line, secondary axis)"
+  },
+  "artifacts": {
+    "top5_units_csv": "query_top5_units_monthly.csv",
+    "top5_ttm_csv": "query_top5_ttm_monthly.csv",
+    "bottom5_units_csv": "query_bottom5_units_monthly.csv",
+    "bottom5_ttm_csv": "query_bottom5_ttm_monthly.csv",
+    "top5_overlay_chart_png": "plot_top5_units_bar_with_ttm_overlay.png",
+    "bottom5_overlay_chart_png": "plot_bottom5_units_bar_with_ttm_overlay.png",
+    "combined_overlay_chart_png": "plot_top_bottom5_units_with_ttm_overlay_combined.png"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "plotly",
+  "owner": "x-cmd",
+  "repo": "skill",
+  "path": "data/k-dense-ai/plotly",
+  "branch": "main",
+  "sha": "d9b460df3f9b0001cd41c8f283bdbdff085ab667",
+  "source": "manual"
+}

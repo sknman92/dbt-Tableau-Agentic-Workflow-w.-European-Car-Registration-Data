@@ -1,0 +1,39 @@
+{
+  "run_date": "2026-03-02",
+  "run_title": "top5_countries_units_by_region_last5y",
+  "generated_at": "2026-03-02",
+  "datasource": {
+    "name": "marts_acea",
+    "luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+    "project": "Charles"
+  },
+  "query": {
+    "fields": [
+      "MANUFACTURER as Country",
+      "REGION as Region",
+      "SUM(Value) as Units Sold"
+    ],
+    "filters": {
+      "Measure": ["UNITS"],
+      "FREQUENCY": ["M"],
+      "DATE_RANGE": {
+        "minDate": "2021-03-02",
+        "maxDate": "2026-03-02"
+      },
+      "TOP": {
+        "dimension": "MANUFACTURER",
+        "howMany": 5,
+        "measure": "SUM(Value)"
+      }
+    }
+  },
+  "notes": [
+    "Datasource does not expose COUNTRY; MANUFACTURER was used as the requested country dimension proxy."
+  ],
+  "artifacts": {
+    "dataset_csv": "query_result.csv",
+    "plot_data_viz_plots_png": "plot_data_viz_plots.png",
+    "plot_chart_visualization_png": "plot_chart_visualization.png",
+    "plot_line_same_data_png": "plot_line_same_data.png"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "run_date": "2026-03-02",
+  "run_title": "yearly_units_line_by_manufacturer",
+  "generated_at": "2026-03-02",
+  "datasource": {
+    "name": "marts_acea",
+    "luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+    "project": "Charles"
+  },
+  "query": {
+    "fields": [
+      "YEAR(DATE) as Year",
+      "MANUFACTURER as Manufacturer",
+      "SUM(Value) as Units Sold"
+    ],
+    "filters": {
+      "Measure": ["UNITS"],
+      "FREQUENCY": ["M"],
+      "REGION": ["EU + EFTA + UK"],
+      "DATE_RANGE": {
+        "minDate": "2021-03-02",
+        "maxDate": "2026-03-02"
+      },
+      "TOP": {
+        "dimension": "MANUFACTURER",
+        "howMany": 5,
+        "measure": "SUM(Value)"
+      }
+    }
+  },
+  "notes": [
+    "X-axis set to Year; line detail set to Manufacturer.",
+    "Available result years in datasource for this filtered view: 2023-2025."
+  ],
+  "artifacts": {
+    "dataset_csv": "query_result.csv",
+    "plot_line_png": "plot_line_year_xaxis_manufacturer.png",
+    "plot_line_chart_visualization_skill_png": "plot_line_chart_visualization_skill.png",
+    "plot_bar_with_manufacturer_avg_dotted_png": "plot_bar_with_manufacturer_avg_dotted.png",
+    "plot_bar_with_manufacturer_avg_dotted_labeled_png": "plot_bar_with_manufacturer_avg_dotted_labeled.png",
+    "plot_bar_with_manufacturer_avg_dotted_labeled_outside_png": "plot_bar_with_manufacturer_avg_dotted_labeled_outside.png"
+  }
+}
