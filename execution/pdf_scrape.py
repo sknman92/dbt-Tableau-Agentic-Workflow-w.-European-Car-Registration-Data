@@ -230,6 +230,16 @@ def parse_acea_pdf(pdf_path: Path) -> pd.DataFrame:
             text = page.extract_text() or ""
             lines.extend(text.splitlines())
 
+    # LLM extraction (Phase 2): try structured extraction first, fall back to regex
+    try:
+        from execution.pdf_extract_chain import extract_rows_with_llm
+        llm_records = extract_rows_with_llm(lines, month_2025, month_2024, pdf_month)
+        if llm_records:
+            print(f"[llm] extracted {len(llm_records)} rows from {pdf_path.name}")
+            return pd.DataFrame(llm_records, columns=expected_columns)
+    except Exception as e:
+        print(f"[llm] extraction failed, falling back to regex: {e}")
+
     records = _parse_acea_lines(lines, month_2025, month_2024, pdf_month)
 
     # Fallback parse: pypdfium2 text engine for fragmented PDFs

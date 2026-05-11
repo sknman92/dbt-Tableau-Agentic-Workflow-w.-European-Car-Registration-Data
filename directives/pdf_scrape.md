@@ -36,13 +36,13 @@ Parse data from PDFs saved in a user-specified directory into intermediate csvs.
    - Export models in `marts/` to Tableau using `execution/publish_tableau_datasource.py`
 
 6. **Data triage**
-   - Use Tableau MCP Vizql Data Service (VDS) tool to triage published Tableau data sources
-    - **6a. Query + export dataset**
-       - Run Tableau MCP query (`mcp_tableau_query-datasource`) for the user’s triage question
-       - Export and save the returned rows as csv in the run folder
-    - **6b. Plot artifacts**
-       - Use the exported csv to generate plots using `skills/data-viz-plots`
-       - Save generated plots in the same run folder
+   - Use Tableau MCP Vizql Data Service (VDS) tool to triage published Tableau data sources and answer all query about data
+   - **6a. Query + export dataset**
+     - Run Tableau MCP query (`mcp_tableau_query-datasource`) for the user’s triage question
+     - Export and save the returned rows as csv in the run folder
+   - **6b. Plot artifacts**
+     - Use the exported csv to generate plots using `skills/data-viz-plots`
+     - Save generated plots in the same run folder
    - Always save triage artifacts under `analyses/` (never in temp directories)
    - At minimum, save:
      - query result dataset (csv)
