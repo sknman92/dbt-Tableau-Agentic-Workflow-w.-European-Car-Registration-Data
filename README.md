@@ -1,6 +1,8 @@
 # Agentic Workflow Project
 
-End-to-end pipeline for ACEA automotive data:
+End-to-end pipeline for ACEA automotive data (https://www.acea.auto/nav/?content=press-releases+publications&tag=registrations-of-vehicles):
+
+Inspired by recent client work at a capital management firm.
 
 1. scrape monthly PDFs,
 2. parse to schema-aligned CSV,
