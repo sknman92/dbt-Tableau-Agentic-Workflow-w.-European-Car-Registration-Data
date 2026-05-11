@@ -1,0 +1,16 @@
+{
+  "run_date": "2026-05-11",
+  "question": "Top 10 manufacturers by YTD",
+  "datasource": "marts_acea",
+  "datasource_luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+  "filters": {
+    "Measure": "YTD",
+    "REGION": "European Union (EU)",
+    "DATE": "2025-12-31"
+  },
+  "period": "Full Year 2025 (Jan-Dec)",
+  "outputs": [
+    "top_10_manufacturers_ytd.csv",
+    "top_10_manufacturers_ytd.png"
+  ]
+}

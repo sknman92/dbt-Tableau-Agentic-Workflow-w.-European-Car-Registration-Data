@@ -16974,3 +16974,1423 @@ where frequency is null
 [0m14:19:30.651018 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A330E7DF10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A330F46390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A30B2AAD50>]}
 [0m14:19:30.651018 [debug] [MainThread]: Flushing usage events
 [0m14:19:31.078631 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:24:59.375411 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CB3025100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CB581FEC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CB56E5A90>]}
+
+
+============================== 10:24:59.382282 | bfc4a502-81d0-48f4-bf81-abe2f3dc7558 ==============================
+[0m10:24:59.382282 [info ] [MainThread]: Running with dbt=1.11.5
+[0m10:24:59.382282 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\CharlesYi\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt build', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\CharlesYi\\Documents\\GitHub\\Agentic Workflow Project_7.2.26\\dbt\\logs'}
+[0m10:25:00.702109 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m10:25:00.703944 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m10:25:00.703944 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m10:25:01.495462 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'bfc4a502-81d0-48f4-bf81-abe2f3dc7558', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CB372F980>]}
+[0m10:25:01.608642 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'bfc4a502-81d0-48f4-bf81-abe2f3dc7558', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CB6527EC0>]}
+[0m10:25:01.608642 [info ] [MainThread]: Registered adapter: snowflake=1.11.2
+[0m10:25:02.979542 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m10:25:10.684505 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m10:25:10.687212 [debug] [MainThread]: Partial parsing: updated file: agentic_workflow_project://models\marts\marts_acea_metrics.py
+[0m10:25:11.449750 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- seeds
+[0m10:25:11.462306 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'bfc4a502-81d0-48f4-bf81-abe2f3dc7558', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CDB45BF80>]}
+[0m10:25:11.562888 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\dbt\target\manifest.json
+[0m10:25:11.611614 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\dbt\target\semantic_manifest.json
+[0m10:25:11.724212 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'bfc4a502-81d0-48f4-bf81-abe2f3dc7558', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CB65674A0>]}
+[0m10:25:11.724212 [info ] [MainThread]: Found 3 models, 19 data tests, 1 source, 665 macros
+[0m10:25:11.724212 [info ] [MainThread]: 
+[0m10:25:11.724212 [info ] [MainThread]: Concurrency: 6 threads (target='dev')
+[0m10:25:11.732193 [info ] [MainThread]: 
+[0m10:25:11.732193 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m10:25:11.740314 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_TIL_DATA_ENGINEERING'
+[0m10:25:11.748871 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_TIL_DATA_ENGINEERING'
+[0m10:25:17.259736 [debug] [ThreadPool]: Using snowflake connection "list_TIL_DATA_ENGINEERING"
+[0m10:25:17.259736 [debug] [ThreadPool]: Using snowflake connection "list_TIL_DATA_ENGINEERING"
+[0m10:25:17.259736 [debug] [ThreadPool]: On list_TIL_DATA_ENGINEERING: show terse schemas in database TIL_DATA_ENGINEERING
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "connection_name": "list_TIL_DATA_ENGINEERING"} */
+[0m10:25:17.259736 [debug] [ThreadPool]: On list_TIL_DATA_ENGINEERING: show terse schemas in database TIL_DATA_ENGINEERING
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "connection_name": "list_TIL_DATA_ENGINEERING"} */
+[0m10:25:17.259736 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:25:17.259736 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:25:19.705419 [debug] [ThreadPool]: SQL status: SUCCESS 246 in 2.442 seconds
+[0m10:25:19.720390 [debug] [ThreadPool]: SQL status: SUCCESS 246 in 2.452 seconds
+[0m10:25:19.725712 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_TIL_DATA_ENGINEERING_dbt_cyi_acea_dbt_test__audit'
+[0m10:25:19.737097 [debug] [ThreadPool]: Using snowflake connection "list_TIL_DATA_ENGINEERING_dbt_cyi_acea_dbt_test__audit"
+[0m10:25:19.737097 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_TIL_DATA_ENGINEERING_dbt_cyi_acea'
+[0m10:25:19.741037 [debug] [ThreadPool]: On list_TIL_DATA_ENGINEERING_dbt_cyi_acea_dbt_test__audit: show objects in TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "connection_name": "list_TIL_DATA_ENGINEERING_dbt_cyi_acea_dbt_test__audit"} */;
+[0m10:25:19.743466 [debug] [ThreadPool]: Using snowflake connection "list_TIL_DATA_ENGINEERING_dbt_cyi_acea"
+[0m10:25:19.743466 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:25:19.744892 [debug] [ThreadPool]: On list_TIL_DATA_ENGINEERING_dbt_cyi_acea: show objects in TIL_DATA_ENGINEERING.dbt_cyi_acea
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "connection_name": "list_TIL_DATA_ENGINEERING_dbt_cyi_acea"} */;
+[0m10:25:19.745754 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:25:20.860905 [debug] [ThreadPool]: SQL status: SUCCESS 19 in 1.118 seconds
+[0m10:25:20.896770 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.154 seconds
+[0m10:25:20.906024 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bfc4a502-81d0-48f4-bf81-abe2f3dc7558', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CDAAF6810>]}
+[0m10:25:21.002612 [debug] [Thread-2 (]: Began running node model.agentic_workflow_project.stg_acea_data
+[0m10:25:21.005649 [info ] [Thread-2 (]: 1 of 22 START sql view model dbt_cyi_acea.stg_acea_data ........................ [RUN]
+[0m10:25:21.005649 [debug] [Thread-2 (]: Acquiring new snowflake connection 'model.agentic_workflow_project.stg_acea_data'
+[0m10:25:21.005649 [debug] [Thread-2 (]: Began compiling node model.agentic_workflow_project.stg_acea_data
+[0m10:25:21.022262 [debug] [Thread-2 (]: Writing injected SQL for node "model.agentic_workflow_project.stg_acea_data"
+[0m10:25:21.022262 [debug] [Thread-2 (]: Began executing node model.agentic_workflow_project.stg_acea_data
+[0m10:25:21.055112 [debug] [Thread-2 (]: Writing runtime sql for node "model.agentic_workflow_project.stg_acea_data"
+[0m10:25:21.055112 [debug] [Thread-2 (]: Using snowflake connection "model.agentic_workflow_project.stg_acea_data"
+[0m10:25:21.055112 [debug] [Thread-2 (]: On model.agentic_workflow_project.stg_acea_data: create or replace   view TIL_DATA_ENGINEERING.dbt_cyi_acea.stg_acea_data
+  
+  
+  
+  
+  as (
+    with source as (
+
+    select * from til_data_engineering.dbt_cyi_acea.acea_data
+
+),
+
+renamed as (
+
+    select
+        region as region,
+        manufacturer as manufacturer,
+        frequency as frequency,
+        month as month,
+        units as units,
+        pdf as pdf_name,
+        inserted_at as inserted_at
+
+    from source
+
+)
+
+select * from renamed
+  )
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "model.agentic_workflow_project.stg_acea_data"} */;
+[0m10:25:21.055112 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m10:25:22.910506 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.848 seconds
+[0m10:25:22.940917 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'bfc4a502-81d0-48f4-bf81-abe2f3dc7558', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CDCBE8B60>]}
+[0m10:25:22.941813 [info ] [Thread-2 (]: 1 of 22 OK created sql view model dbt_cyi_acea.stg_acea_data ................... [[32mSUCCESS 1[0m in 1.93s]
+[0m10:25:22.941813 [debug] [Thread-2 (]: Finished running node model.agentic_workflow_project.stg_acea_data
+[0m10:25:22.945693 [debug] [Thread-4 (]: Began running node test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084
+[0m10:25:22.945693 [info ] [Thread-4 (]: 2 of 22 START test not_null_stg_acea_data_frequency ............................ [RUN]
+[0m10:25:22.945693 [debug] [Thread-5 (]: Began running node test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200
+[0m10:25:22.945693 [debug] [Thread-6 (]: Began running node test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9
+[0m10:25:22.945693 [debug] [Thread-7 (]: Began running node test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06
+[0m10:25:22.945693 [debug] [Thread-3 (]: Began running node test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91
+[0m10:25:22.945693 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084'
+[0m10:25:22.945693 [debug] [Thread-2 (]: Began running node test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246
+[0m10:25:22.945693 [info ] [Thread-5 (]: 3 of 22 START test not_null_stg_acea_data_inserted_at .......................... [RUN]
+[0m10:25:22.945693 [info ] [Thread-6 (]: 4 of 22 START test not_null_stg_acea_data_manufacturer ......................... [RUN]
+[0m10:25:22.945693 [info ] [Thread-7 (]: 5 of 22 START test not_null_stg_acea_data_month ................................ [RUN]
+[0m10:25:22.945693 [info ] [Thread-3 (]: 6 of 22 START test not_null_stg_acea_data_pdf_name ............................. [RUN]
+[0m10:25:22.952846 [debug] [Thread-4 (]: Began compiling node test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084
+[0m10:25:22.952846 [info ] [Thread-2 (]: 7 of 22 START test not_null_stg_acea_data_region ............................... [RUN]
+[0m10:25:22.953936 [debug] [Thread-5 (]: Acquiring new snowflake connection 'test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200'
+[0m10:25:22.953936 [debug] [Thread-6 (]: Acquiring new snowflake connection 'test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9'
+[0m10:25:22.953936 [debug] [Thread-7 (]: Acquiring new snowflake connection 'test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06'
+[0m10:25:22.953936 [debug] [Thread-3 (]: Acquiring new snowflake connection 'test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91'
+[0m10:25:22.962061 [debug] [Thread-4 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084"
+[0m10:25:22.962061 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.agentic_workflow_project.stg_acea_data, now test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246)
+[0m10:25:22.962061 [debug] [Thread-5 (]: Began compiling node test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200
+[0m10:25:22.962061 [debug] [Thread-6 (]: Began compiling node test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9
+[0m10:25:22.962061 [debug] [Thread-7 (]: Began compiling node test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06
+[0m10:25:22.970290 [debug] [Thread-3 (]: Began compiling node test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91
+[0m10:25:22.970290 [debug] [Thread-2 (]: Began compiling node test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246
+[0m10:25:22.973552 [debug] [Thread-5 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200"
+[0m10:25:22.978322 [debug] [Thread-6 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9"
+[0m10:25:22.983036 [debug] [Thread-7 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06"
+[0m10:25:22.987473 [debug] [Thread-3 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91"
+[0m10:25:22.991412 [debug] [Thread-2 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246"
+[0m10:25:23.036995 [debug] [Thread-4 (]: Began executing node test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084
+[0m10:25:23.052863 [debug] [Thread-2 (]: Began executing node test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246
+[0m10:25:23.060368 [debug] [Thread-2 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_REGION"
+[0m10:25:23.060368 [debug] [Thread-3 (]: Began executing node test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91
+[0m10:25:23.060368 [debug] [Thread-6 (]: Began executing node test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9
+[0m10:25:23.065831 [debug] [Thread-4 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_FREQUENCY"
+[0m10:25:23.079020 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246"
+[0m10:25:23.079020 [debug] [Thread-5 (]: Began executing node test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200
+[0m10:25:23.079020 [debug] [Thread-7 (]: Began executing node test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06
+[0m10:25:23.084755 [debug] [Thread-3 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_PDF_NAME"
+[0m10:25:23.181175 [debug] [Thread-6 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_MANUFACTURER"
+[0m10:25:23.181646 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084"
+[0m10:25:23.182808 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_REGION" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246"} */
+[0m10:25:23.187230 [debug] [Thread-5 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_INSERTED_AT"
+[0m10:25:23.187230 [debug] [Thread-7 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_MONTH"
+[0m10:25:23.187230 [debug] [Thread-3 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91"
+[0m10:25:23.187230 [debug] [Thread-6 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9"
+[0m10:25:23.193684 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_FREQUENCY" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084"} */
+[0m10:25:23.193684 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200"
+[0m10:25:23.193684 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06"
+[0m10:25:23.193684 [debug] [Thread-3 (]: On test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_PDF_NAME" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91"} */
+[0m10:25:23.193684 [debug] [Thread-6 (]: On test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_MANUFACTURER" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9"} */
+[0m10:25:23.193684 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m10:25:23.193684 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_INSERTED_AT" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200"} */
+[0m10:25:23.193684 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_STG_ACEA_DATA_MONTH" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06"} */
+[0m10:25:23.193684 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m10:25:23.193684 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m10:25:23.193684 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m10:25:23.204710 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m10:25:23.457877 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.271 seconds
+[0m10:25:23.470141 [debug] [Thread-2 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_region
+[0m10:25:23.490116 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246"
+[0m10:25:23.490116 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_region
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.stg_acea_data
+where region is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246"} */;
+[0m10:25:24.189499 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.695 seconds
+[0m10:25:24.200814 [debug] [Thread-2 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246"
+[0m10:25:24.205021 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246"
+[0m10:25:24.205021 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_region
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246"} */
+[0m10:25:24.236347 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 1.033 seconds
+[0m10:25:24.239205 [debug] [Thread-7 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_month
+[0m10:25:24.240599 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06"
+[0m10:25:24.242616 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_month
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.stg_acea_data
+where month is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06"} */;
+[0m10:25:24.269402 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 1.068 seconds
+[0m10:25:24.269402 [debug] [Thread-6 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_manufacturer
+[0m10:25:24.272205 [debug] [Thread-6 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9"
+[0m10:25:24.272823 [debug] [Thread-6 (]: On test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_manufacturer
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.stg_acea_data
+where manufacturer is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9"} */;
+[0m10:25:24.419483 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.222 seconds
+[0m10:25:24.421593 [debug] [Thread-4 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_frequency
+[0m10:25:24.425609 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084"
+[0m10:25:24.425609 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_frequency
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.stg_acea_data
+where frequency is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084"} */;
+[0m10:25:24.448574 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.246 seconds
+[0m10:25:24.448574 [debug] [Thread-5 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_inserted_at
+[0m10:25:24.451512 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200"
+[0m10:25:24.451512 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_inserted_at
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.stg_acea_data
+where inserted_at is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200"} */;
+[0m10:25:24.475474 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.278 seconds
+[0m10:25:24.475474 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.285 seconds
+[0m10:25:24.536510 [debug] [Thread-3 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_pdf_name
+[0m10:25:24.536510 [info ] [Thread-2 (]: 7 of 22 PASS not_null_stg_acea_data_region ..................................... [[32mPASS[0m in 1.57s]
+[0m10:25:24.536510 [debug] [Thread-3 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91"
+[0m10:25:24.540806 [debug] [Thread-2 (]: Finished running node test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246
+[0m10:25:24.540806 [debug] [Thread-3 (]: On test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_pdf_name
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.stg_acea_data
+where pdf_name is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91"} */;
+[0m10:25:24.964289 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.721 seconds
+[0m10:25:24.964289 [debug] [Thread-7 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06"
+[0m10:25:24.969407 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06"
+[0m10:25:24.972854 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_month
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06"} */
+[0m10:25:24.987981 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.725 seconds
+[0m10:25:25.003041 [debug] [Thread-6 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9"
+[0m10:25:25.006148 [debug] [Thread-6 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9"
+[0m10:25:25.006148 [debug] [Thread-6 (]: On test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_manufacturer
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9"} */
+[0m10:25:25.162046 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.708 seconds
+[0m10:25:25.168105 [debug] [Thread-5 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200"
+[0m10:25:25.172558 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200"
+[0m10:25:25.172558 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_inserted_at
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200"} */
+[0m10:25:25.203478 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.229 seconds
+[0m10:25:25.206511 [info ] [Thread-7 (]: 5 of 22 PASS not_null_stg_acea_data_month ...................................... [[32mPASS[0m in 2.25s]
+[0m10:25:25.206511 [debug] [Thread-7 (]: Finished running node test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06
+[0m10:25:25.242159 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.699 seconds
+[0m10:25:25.244117 [debug] [Thread-3 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91"
+[0m10:25:25.244117 [debug] [Thread-3 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91"
+[0m10:25:25.252317 [debug] [Thread-3 (]: On test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_pdf_name
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91"} */
+[0m10:25:25.275792 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.274 seconds
+[0m10:25:25.288387 [info ] [Thread-6 (]: 4 of 22 PASS not_null_stg_acea_data_manufacturer ............................... [[32mPASS[0m in 2.33s]
+[0m10:25:25.292000 [debug] [Thread-6 (]: Finished running node test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9
+[0m10:25:25.292000 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.870 seconds
+[0m10:25:25.300043 [debug] [Thread-4 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084"
+[0m10:25:25.303221 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084"
+[0m10:25:25.303221 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_stg_acea_data_frequency
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084"} */
+[0m10:25:25.441811 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.268 seconds
+[0m10:25:25.449464 [info ] [Thread-5 (]: 3 of 22 PASS not_null_stg_acea_data_inserted_at ................................ [[32mPASS[0m in 2.50s]
+[0m10:25:25.452550 [debug] [Thread-5 (]: Finished running node test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200
+[0m10:25:25.522072 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.269 seconds
+[0m10:25:25.524088 [info ] [Thread-3 (]: 6 of 22 PASS not_null_stg_acea_data_pdf_name ................................... [[32mPASS[0m in 2.57s]
+[0m10:25:25.531785 [debug] [Thread-3 (]: Finished running node test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91
+[0m10:25:25.570392 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.277 seconds
+[0m10:25:25.587445 [info ] [Thread-4 (]: 2 of 22 PASS not_null_stg_acea_data_frequency .................................. [[32mPASS[0m in 2.64s]
+[0m10:25:25.587445 [debug] [Thread-4 (]: Finished running node test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084
+[0m10:25:25.587445 [debug] [Thread-2 (]: Began running node model.agentic_workflow_project.int_acea_data
+[0m10:25:25.587445 [info ] [Thread-2 (]: 8 of 22 START sql view model dbt_cyi_acea.int_acea_data ........................ [RUN]
+[0m10:25:25.587445 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_stg_acea_data_region.23780fe246, now model.agentic_workflow_project.int_acea_data)
+[0m10:25:25.587445 [debug] [Thread-2 (]: Began compiling node model.agentic_workflow_project.int_acea_data
+[0m10:25:25.625311 [debug] [Thread-2 (]: Writing injected SQL for node "model.agentic_workflow_project.int_acea_data"
+[0m10:25:25.633500 [debug] [Thread-2 (]: Began executing node model.agentic_workflow_project.int_acea_data
+[0m10:25:25.633500 [debug] [Thread-2 (]: Writing runtime sql for node "model.agentic_workflow_project.int_acea_data"
+[0m10:25:25.641683 [debug] [Thread-2 (]: Using snowflake connection "model.agentic_workflow_project.int_acea_data"
+[0m10:25:25.641683 [debug] [Thread-2 (]: On model.agentic_workflow_project.int_acea_data: create or replace   view TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+  
+  
+  
+  
+  as (
+    with source as (
+
+    select * from TIL_DATA_ENGINEERING.dbt_cyi_acea.stg_acea_data
+
+),
+
+renamed as (
+
+    select
+        region as region,
+        manufacturer as manufacturer,
+        frequency as frequency,
+        month as month,
+        units as units,
+        pdf_name as pdf_name,
+        inserted_at as inserted_at
+
+    from source
+
+),
+
+
+deduping as (
+    select *
+        , row_number() over (
+            partition by region, manufacturer, frequency, month
+            order by pdf_name desc
+        ) as row_deduped
+    from source
+),
+
+deduped as (
+    select * exclude(row_deduped)
+    from deduping
+    where row_deduped = 1
+),    
+
+surrogate_key as (
+    select *
+        , md5(cast(coalesce(cast(manufacturer as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(month as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(frequency as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(region as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) as id
+    from deduped
+)
+
+select * from surrogate_key
+  )
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "model.agentic_workflow_project.int_acea_data"} */;
+[0m10:25:26.387601 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.751 seconds
+[0m10:25:26.404107 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'bfc4a502-81d0-48f4-bf81-abe2f3dc7558', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CDAE27110>]}
+[0m10:25:26.404107 [info ] [Thread-2 (]: 8 of 22 OK created sql view model dbt_cyi_acea.int_acea_data ................... [[32mSUCCESS 1[0m in 0.82s]
+[0m10:25:26.409002 [debug] [Thread-2 (]: Finished running node model.agentic_workflow_project.int_acea_data
+[0m10:25:26.409002 [debug] [Thread-6 (]: Began running node test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21
+[0m10:25:26.409002 [debug] [Thread-5 (]: Began running node test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef
+[0m10:25:26.409002 [debug] [Thread-3 (]: Began running node test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e
+[0m10:25:26.409002 [debug] [Thread-4 (]: Began running node test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516
+[0m10:25:26.415987 [debug] [Thread-7 (]: Began running node test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c
+[0m10:25:26.415987 [debug] [Thread-2 (]: Began running node test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8
+[0m10:25:26.415987 [info ] [Thread-6 (]: 9 of 22 START test not_null_int_acea_data_frequency ............................ [RUN]
+[0m10:25:26.419164 [info ] [Thread-5 (]: 10 of 22 START test not_null_int_acea_data_id .................................. [RUN]
+[0m10:25:26.419164 [info ] [Thread-3 (]: 11 of 22 START test not_null_int_acea_data_inserted_at ......................... [RUN]
+[0m10:25:26.422406 [info ] [Thread-4 (]: 12 of 22 START test not_null_int_acea_data_manufacturer ........................ [RUN]
+[0m10:25:26.423007 [info ] [Thread-7 (]: 13 of 22 START test not_null_int_acea_data_month ............................... [RUN]
+[0m10:25:26.424040 [info ] [Thread-2 (]: 14 of 22 START test not_null_int_acea_data_pdf_name ............................ [RUN]
+[0m10:25:26.424040 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_stg_acea_data_manufacturer.1909e5a3a9, now test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21)
+[0m10:25:26.424040 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_stg_acea_data_inserted_at.5cef383200, now test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef)
+[0m10:25:26.424040 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_stg_acea_data_pdf_name.7c2be3df91, now test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e)
+[0m10:25:26.424040 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_stg_acea_data_frequency.4e20508084, now test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516)
+[0m10:25:26.424040 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_stg_acea_data_month.5ac195ea06, now test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c)
+[0m10:25:26.432289 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.agentic_workflow_project.int_acea_data, now test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8)
+[0m10:25:26.432289 [debug] [Thread-6 (]: Began compiling node test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21
+[0m10:25:26.432289 [debug] [Thread-5 (]: Began compiling node test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef
+[0m10:25:26.436348 [debug] [Thread-3 (]: Began compiling node test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e
+[0m10:25:26.436348 [debug] [Thread-4 (]: Began compiling node test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516
+[0m10:25:26.436348 [debug] [Thread-7 (]: Began compiling node test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c
+[0m10:25:26.440302 [debug] [Thread-2 (]: Began compiling node test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8
+[0m10:25:26.452928 [debug] [Thread-6 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21"
+[0m10:25:26.465003 [debug] [Thread-5 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef"
+[0m10:25:26.470643 [debug] [Thread-3 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e"
+[0m10:25:26.489171 [debug] [Thread-4 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516"
+[0m10:25:26.505451 [debug] [Thread-7 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c"
+[0m10:25:26.513854 [debug] [Thread-2 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8"
+[0m10:25:26.521916 [debug] [Thread-5 (]: Began executing node test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef
+[0m10:25:26.521916 [debug] [Thread-6 (]: Began executing node test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21
+[0m10:25:26.524070 [debug] [Thread-3 (]: Began executing node test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e
+[0m10:25:26.524070 [debug] [Thread-4 (]: Began executing node test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516
+[0m10:25:26.524070 [debug] [Thread-7 (]: Began executing node test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c
+[0m10:25:26.537698 [debug] [Thread-5 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_ID"
+[0m10:25:26.552471 [debug] [Thread-2 (]: Began executing node test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8
+[0m10:25:26.553977 [debug] [Thread-6 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_FREQUENCY"
+[0m10:25:26.556820 [debug] [Thread-3 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_INSERTED_AT"
+[0m10:25:26.576575 [debug] [Thread-4 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_MANUFACTURER"
+[0m10:25:26.594010 [debug] [Thread-7 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_MONTH"
+[0m10:25:26.594010 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef"
+[0m10:25:26.609264 [debug] [Thread-2 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_PDF_NAME"
+[0m10:25:26.609264 [debug] [Thread-6 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21"
+[0m10:25:26.609264 [debug] [Thread-3 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e"
+[0m10:25:26.620581 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516"
+[0m10:25:26.620581 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c"
+[0m10:25:26.625039 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_ID" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef"} */
+[0m10:25:26.627234 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8"
+[0m10:25:26.627234 [debug] [Thread-6 (]: On test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_FREQUENCY" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21"} */
+[0m10:25:26.627234 [debug] [Thread-3 (]: On test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_INSERTED_AT" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e"} */
+[0m10:25:26.627234 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_MANUFACTURER" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516"} */
+[0m10:25:26.627234 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_MONTH" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c"} */
+[0m10:25:26.635774 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_PDF_NAME" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8"} */
+[0m10:25:26.866066 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.228 seconds
+[0m10:25:26.866066 [debug] [Thread-6 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_frequency
+[0m10:25:26.872419 [debug] [Thread-6 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21"
+[0m10:25:26.872419 [debug] [Thread-6 (]: On test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_frequency
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where frequency is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21"} */;
+[0m10:25:26.872419 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.244 seconds
+[0m10:25:26.879189 [debug] [Thread-5 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_id
+[0m10:25:26.884567 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef"
+[0m10:25:26.886221 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_id
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where id is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef"} */;
+[0m10:25:26.899009 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.250 seconds
+[0m10:25:26.901028 [debug] [Thread-2 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_pdf_name
+[0m10:25:26.902902 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8"
+[0m10:25:26.906514 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_pdf_name
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where pdf_name is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8"} */;
+[0m10:25:26.909408 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.271 seconds
+[0m10:25:26.913870 [debug] [Thread-3 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_inserted_at
+[0m10:25:26.919853 [debug] [Thread-3 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e"
+[0m10:25:26.923168 [debug] [Thread-3 (]: On test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_inserted_at
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where inserted_at is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e"} */;
+[0m10:25:26.925558 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.283 seconds
+[0m10:25:26.930068 [debug] [Thread-7 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_month
+[0m10:25:26.938243 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c"
+[0m10:25:26.939331 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_month
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where month is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c"} */;
+[0m10:25:26.986079 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.345 seconds
+[0m10:25:26.986079 [debug] [Thread-4 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_manufacturer
+[0m10:25:26.995363 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516"
+[0m10:25:26.996267 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_manufacturer
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where manufacturer is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516"} */;
+[0m10:25:27.829317 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.921 seconds
+[0m10:25:27.835550 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.948 seconds
+[0m10:25:27.843648 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.903 seconds
+[0m10:25:27.845743 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.971 seconds
+[0m10:25:27.845743 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.923 seconds
+[0m10:25:27.841628 [debug] [Thread-2 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8"
+[0m10:25:27.850152 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.854 seconds
+[0m10:25:27.853905 [debug] [Thread-5 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef"
+[0m10:25:27.853905 [debug] [Thread-7 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c"
+[0m10:25:27.860136 [debug] [Thread-6 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21"
+[0m10:25:27.860136 [debug] [Thread-3 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e"
+[0m10:25:27.869456 [debug] [Thread-4 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516"
+[0m10:25:27.871973 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8"
+[0m10:25:27.871973 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef"
+[0m10:25:27.876299 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c"
+[0m10:25:27.876299 [debug] [Thread-6 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21"
+[0m10:25:27.876299 [debug] [Thread-3 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e"
+[0m10:25:27.876299 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_pdf_name
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8"} */
+[0m10:25:27.885397 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516"
+[0m10:25:27.886141 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_id
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef"} */
+[0m10:25:27.886141 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_month
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c"} */
+[0m10:25:27.886141 [debug] [Thread-6 (]: On test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_frequency
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21"} */
+[0m10:25:27.886141 [debug] [Thread-3 (]: On test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_inserted_at
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e"} */
+[0m10:25:27.892780 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_manufacturer
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516"} */
+[0m10:25:28.111177 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.220 seconds
+[0m10:25:28.118852 [info ] [Thread-2 (]: 14 of 22 PASS not_null_int_acea_data_pdf_name .................................. [[32mPASS[0m in 1.68s]
+[0m10:25:28.118852 [debug] [Thread-2 (]: Finished running node test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8
+[0m10:25:28.122846 [debug] [Thread-2 (]: Began running node test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367
+[0m10:25:28.124009 [info ] [Thread-2 (]: 15 of 22 START test not_null_int_acea_data_region .............................. [RUN]
+[0m10:25:28.124009 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_int_acea_data_pdf_name.f90d841eb8, now test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367)
+[0m10:25:28.128713 [debug] [Thread-2 (]: Began compiling node test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367
+[0m10:25:28.138233 [debug] [Thread-2 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367"
+[0m10:25:28.138233 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.244 seconds
+[0m10:25:28.148601 [debug] [Thread-2 (]: Began executing node test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367
+[0m10:25:28.148601 [info ] [Thread-7 (]: 13 of 22 PASS not_null_int_acea_data_month ..................................... [[32mPASS[0m in 1.72s]
+[0m10:25:28.156770 [debug] [Thread-2 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_REGION"
+[0m10:25:28.165182 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.259 seconds
+[0m10:25:28.168890 [debug] [Thread-7 (]: Finished running node test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c
+[0m10:25:28.169305 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367"
+[0m10:25:28.177424 [info ] [Thread-4 (]: 12 of 22 PASS not_null_int_acea_data_manufacturer .............................. [[32mPASS[0m in 1.75s]
+[0m10:25:28.177424 [debug] [Thread-7 (]: Began running node test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620
+[0m10:25:28.177424 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_REGION" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367"} */
+[0m10:25:28.182750 [debug] [Thread-4 (]: Finished running node test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516
+[0m10:25:28.182750 [info ] [Thread-7 (]: 16 of 22 START test not_null_int_acea_data_units ............................... [RUN]
+[0m10:25:28.187458 [debug] [Thread-4 (]: Began running node test.agentic_workflow_project.unique_int_acea_data_id.0797700902
+[0m10:25:28.189329 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_int_acea_data_month.882a05aa8c, now test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620)
+[0m10:25:28.191248 [info ] [Thread-4 (]: 17 of 22 START test unique_int_acea_data_id .................................... [RUN]
+[0m10:25:28.191248 [debug] [Thread-7 (]: Began compiling node test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620
+[0m10:25:28.191248 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_int_acea_data_manufacturer.0031b89516, now test.agentic_workflow_project.unique_int_acea_data_id.0797700902)
+[0m10:25:28.203341 [debug] [Thread-7 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620"
+[0m10:25:28.203341 [debug] [Thread-4 (]: Began compiling node test.agentic_workflow_project.unique_int_acea_data_id.0797700902
+[0m10:25:28.218767 [debug] [Thread-4 (]: Writing injected SQL for node "test.agentic_workflow_project.unique_int_acea_data_id.0797700902"
+[0m10:25:28.221391 [debug] [Thread-7 (]: Began executing node test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620
+[0m10:25:28.229780 [debug] [Thread-7 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_UNITS"
+[0m10:25:28.231791 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620"
+[0m10:25:28.233804 [debug] [Thread-4 (]: Began executing node test.agentic_workflow_project.unique_int_acea_data_id.0797700902
+[0m10:25:28.233804 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_INT_ACEA_DATA_UNITS" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620"} */
+[0m10:25:28.246259 [debug] [Thread-4 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."UNIQUE_INT_ACEA_DATA_ID"
+[0m10:25:28.246259 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.347 seconds
+[0m10:25:28.246259 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.347 seconds
+[0m10:25:28.255575 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.unique_int_acea_data_id.0797700902"
+[0m10:25:28.259597 [info ] [Thread-6 (]: 9 of 22 PASS not_null_int_acea_data_frequency .................................. [[32mPASS[0m in 1.84s]
+[0m10:25:28.259597 [info ] [Thread-3 (]: 11 of 22 PASS not_null_int_acea_data_inserted_at ............................... [[32mPASS[0m in 1.84s]
+[0m10:25:28.268957 [debug] [Thread-4 (]: On test.agentic_workflow_project.unique_int_acea_data_id.0797700902: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."UNIQUE_INT_ACEA_DATA_ID" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.unique_int_acea_data_id.0797700902"} */
+[0m10:25:28.271907 [debug] [Thread-6 (]: Finished running node test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21
+[0m10:25:28.271907 [debug] [Thread-3 (]: Finished running node test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e
+[0m10:25:28.286249 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.390 seconds
+[0m10:25:28.294214 [info ] [Thread-5 (]: 10 of 22 PASS not_null_int_acea_data_id ........................................ [[32mPASS[0m in 1.86s]
+[0m10:25:28.294214 [debug] [Thread-5 (]: Finished running node test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef
+[0m10:25:28.441522 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.256 seconds
+[0m10:25:28.441522 [debug] [Thread-2 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_region
+[0m10:25:28.441522 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367"
+[0m10:25:28.449928 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_region
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where region is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367"} */;
+[0m10:25:28.552690 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.279 seconds
+[0m10:25:28.552690 [debug] [Thread-4 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.unique_int_acea_data_id
+[0m10:25:28.552690 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.unique_int_acea_data_id.0797700902"
+[0m10:25:28.552690 [debug] [Thread-4 (]: On test.agentic_workflow_project.unique_int_acea_data_id.0797700902: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.unique_int_acea_data_id
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+select
+    id as unique_field,
+    count(*) as n_records
+
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where id is not null
+group by id
+having count(*) > 1
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.unique_int_acea_data_id.0797700902"} */;
+[0m10:25:28.594523 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.349 seconds
+[0m10:25:28.603208 [debug] [Thread-7 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_units
+[0m10:25:28.603208 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620"
+[0m10:25:28.603208 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_units
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data
+where units is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620"} */;
+[0m10:25:29.204317 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.753 seconds
+[0m10:25:29.206445 [debug] [Thread-2 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367"
+[0m10:25:29.209617 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367"
+[0m10:25:29.209617 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_region
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367"} */
+[0m10:25:29.392377 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.827 seconds
+[0m10:25:29.396422 [debug] [Thread-4 (]: Writing runtime sql for node "test.agentic_workflow_project.unique_int_acea_data_id.0797700902"
+[0m10:25:29.401882 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.unique_int_acea_data_id.0797700902"
+[0m10:25:29.402396 [debug] [Thread-4 (]: On test.agentic_workflow_project.unique_int_acea_data_id.0797700902: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.unique_int_acea_data_id
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.unique_int_acea_data_id.0797700902"} */
+[0m10:25:29.475755 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.265 seconds
+[0m10:25:29.479146 [info ] [Thread-2 (]: 15 of 22 PASS not_null_int_acea_data_region .................................... [[32mPASS[0m in 1.36s]
+[0m10:25:29.483184 [debug] [Thread-2 (]: Finished running node test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367
+[0m10:25:29.533144 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.921 seconds
+[0m10:25:29.536775 [debug] [Thread-7 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620"
+[0m10:25:29.540804 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620"
+[0m10:25:29.542813 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_int_acea_data_units
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620"} */
+[0m10:25:29.691623 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.299 seconds
+[0m10:25:29.707386 [info ] [Thread-4 (]: 17 of 22 PASS unique_int_acea_data_id .......................................... [[32mPASS[0m in 1.52s]
+[0m10:25:29.709269 [debug] [Thread-4 (]: Finished running node test.agentic_workflow_project.unique_int_acea_data_id.0797700902
+[0m10:25:29.835306 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.289 seconds
+[0m10:25:29.839014 [info ] [Thread-7 (]: 16 of 22 PASS not_null_int_acea_data_units ..................................... [[32mPASS[0m in 1.65s]
+[0m10:25:29.839014 [debug] [Thread-7 (]: Finished running node test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620
+[0m10:25:29.848325 [debug] [Thread-6 (]: Began running node model.agentic_workflow_project.marts_acea_metrics
+[0m10:25:29.848325 [info ] [Thread-6 (]: 18 of 22 START python table model dbt_cyi_acea.marts_acea_metrics .............. [RUN]
+[0m10:25:29.853735 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_int_acea_data_frequency.5847068a21, now model.agentic_workflow_project.marts_acea_metrics)
+[0m10:25:29.853735 [debug] [Thread-6 (]: Began compiling node model.agentic_workflow_project.marts_acea_metrics
+[0m10:25:29.930209 [debug] [Thread-6 (]: Writing injected SQL for node "model.agentic_workflow_project.marts_acea_metrics"
+[0m10:25:29.935828 [debug] [Thread-6 (]: Began executing node model.agentic_workflow_project.marts_acea_metrics
+[0m10:25:29.968896 [debug] [Thread-6 (]: Writing runtime python for node "model.agentic_workflow_project.marts_acea_metrics"
+[0m10:25:29.968896 [debug] [Thread-6 (]: Using snowflake connection "model.agentic_workflow_project.marts_acea_metrics"
+[0m10:25:29.976672 [debug] [Thread-6 (]: On model.agentic_workflow_project.marts_acea_metrics: WITH marts_acea_metrics__dbt_sp AS PROCEDURE ()
+
+RETURNS STRING
+LANGUAGE PYTHON
+RUNTIME_VERSION = '3.10'
+PACKAGES = ('snowflake-snowpark-python')
+
+
+
+HANDLER = 'main'
+EXECUTE AS CALLER
+AS
+$$
+
+import sys
+sys._xoptions['snowflake_partner_attribution'].append("dbtLabs_dbtPython")
+
+
+  
+    
+
+from logging import log
+
+
+def model(dbt, session):
+
+    import pandas as pd
+    import os
+
+    # read data
+    df = dbt.ref('int_acea_data').to_pandas()
+   
+    # changing unit col to numeric
+    df['DATE'] = pd.to_datetime(df['MONTH'], format='%b-%y') + pd.offsets.MonthEnd(0)
+    df.drop(columns=['MONTH'], inplace=True)
+
+    # removing YTD rows - will re-calculate
+    df_filtered = df[df['FREQUENCY'] != 'YTD']
+
+    # resampling
+    df_filtered.set_index('DATE', inplace=True)
+    df_filtered = df_filtered.groupby(['MANUFACTURER', 'FREQUENCY', 'REGION']).resample('M')['UNITS'].mean().ffill().reset_index()
+
+    # concating
+    to_ret = df_filtered.copy()
+
+    # calculating YTD values
+    df_ytd = to_ret.copy()
+    df_ytd['Year'] = df_ytd['DATE'].dt.year
+    df_ytd['YTD'] = df_ytd.groupby(['MANUFACTURER', 'FREQUENCY', 'REGION', 'Year'])['UNITS'].cumsum()
+    df_ytd =  df_ytd.drop(columns=['Year'])
+
+    # calculating rolling sum
+    df_ttm = to_ret.copy()
+    df_ttm = df_ttm.sort_values(['MANUFACTURER', 'FREQUENCY', 'REGION', 'DATE']).reset_index(drop=True)
+    df_ttm['TTM'] = df_ttm.groupby(['MANUFACTURER', 'FREQUENCY', 'REGION'], sort=False)['UNITS'].transform(
+        lambda x: x.rolling(window=12, min_periods=1).sum()
+    )
+
+    # concating YTD and TTM cuts back to main df
+    to_ret['TTM'] = df_ttm['TTM']
+    to_ret['YTD'] = df_ytd['YTD']
+
+    # calculate PoP growth rate for each cut
+    measures = ['UNITS', 'YTD', 'TTM']
+    to_ret[[f'{m}_PoP' for m in measures]] = to_ret.groupby(['MANUFACTURER', 'FREQUENCY', 'REGION'])[measures].pct_change(fill_method=None)
+
+    # calculating yearly growth rate for q and m cuts
+    yoy = to_ret.groupby(
+        ['MANUFACTURER', 'REGION', 'FREQUENCY'],
+        group_keys=False,
+    )[measures].apply(lambda g: g.pct_change(12 if g.name[-1] == 'M' else 4, fill_method=None))
+
+    to_ret[[f'{m}_YoY' for m in measures]] = yoy
+
+    # melting
+    df_melted = pd.melt(to_ret,
+                        id_vars = ['MANUFACTURER', 'REGION', 'FREQUENCY', 'DATE'],
+                        value_vars = ['UNITS', 'YTD', 'TTM', 'UNITS_PoP', 'YTD_PoP', 'TTM_PoP', 'UNITS_YoY', 'YTD_YoY', 'TTM_YoY'],
+                        var_name = 'Measure',
+                        value_name = 'Value')
+    
+    return df_melted
+
+
+# This part is user provided model code
+# you will need to copy the next section to run the code
+# COMMAND ----------
+# this part is dbt logic for get ref work, do not modify
+
+def ref(*args, **kwargs):
+    refs = {"int_acea_data": "TIL_DATA_ENGINEERING.dbt_cyi_acea.int_acea_data"}
+    key = '.'.join(args)
+    version = kwargs.get("v") or kwargs.get("version")
+    if version:
+        key += f".v{version}"
+    dbt_load_df_function = kwargs.get("dbt_load_df_function")
+    return dbt_load_df_function(refs[key])
+
+
+def source(*args, dbt_load_df_function):
+    sources = {}
+    key = '.'.join(args)
+    return dbt_load_df_function(sources[key])
+
+
+config_dict = {}
+meta_dict = {}
+
+
+class config:
+    def __init__(self, *args, **kwargs):
+        pass
+
+    @staticmethod
+    def get(key, default=None):
+        return config_dict.get(key, default)
+
+    @staticmethod
+    def meta_get(key, default=None):
+        return meta_dict.get(key, default)
+
+class this:
+    """dbt.this() or dbt.this.identifier"""
+    database = "TIL_DATA_ENGINEERING"
+    schema = "dbt_cyi_acea"
+    identifier = "marts_acea_metrics"
+    
+    def __repr__(self):
+        return 'TIL_DATA_ENGINEERING.dbt_cyi_acea.marts_acea_metrics'
+
+
+class dbtObj:
+    def __init__(self, load_df_function) -> None:
+        self.source = lambda *args: source(*args, dbt_load_df_function=load_df_function)
+        self.ref = lambda *args, **kwargs: ref(*args, **kwargs, dbt_load_df_function=load_df_function)
+        self.config = config
+        self.this = this()
+        self.is_incremental = False
+
+# COMMAND ----------
+
+
+
+
+
+def materialize(session, df, target_relation):
+    # make sure pandas exists
+    import importlib.util
+    package_name = 'pandas'
+    if importlib.util.find_spec(package_name):
+        import pandas
+        if isinstance(df, pandas.core.frame.DataFrame):
+            session.use_database(target_relation.database)
+            session.use_schema(target_relation.schema)
+            # session.write_pandas does not have overwrite function
+            df = session.createDataFrame(df)
+    
+    df.write.mode("overwrite").save_as_table('TIL_DATA_ENGINEERING.dbt_cyi_acea.marts_acea_metrics', table_type='transient')
+
+
+def main(session):
+    dbt = dbtObj(session.table)
+    df = model(dbt, session)
+    materialize(session, df, dbt.this)
+    return "OK"
+
+
+  
+$$
+CALL marts_acea_metrics__dbt_sp()
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "model.agentic_workflow_project.marts_acea_metrics"} */;
+[0m10:25:39.290725 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 9.318 seconds
+[0m10:25:39.298008 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'bfc4a502-81d0-48f4-bf81-abe2f3dc7558', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CDCEC8CB0>]}
+[0m10:25:39.300313 [info ] [Thread-6 (]: 18 of 22 OK created python table model dbt_cyi_acea.marts_acea_metrics ......... [[32mSUCCESS 1[0m in 9.44s]
+[0m10:25:39.301537 [debug] [Thread-6 (]: Finished running node model.agentic_workflow_project.marts_acea_metrics
+[0m10:25:39.301537 [debug] [Thread-5 (]: Began running node test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46
+[0m10:25:39.301537 [debug] [Thread-2 (]: Began running node test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788
+[0m10:25:39.301537 [debug] [Thread-4 (]: Began running node test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2
+[0m10:25:39.301537 [debug] [Thread-7 (]: Began running node test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f
+[0m10:25:39.301537 [info ] [Thread-5 (]: 19 of 22 START test not_null_marts_acea_metrics_date ........................... [RUN]
+[0m10:25:39.301537 [info ] [Thread-2 (]: 20 of 22 START test not_null_marts_acea_metrics_frequency ...................... [RUN]
+[0m10:25:39.301537 [info ] [Thread-4 (]: 21 of 22 START test not_null_marts_acea_metrics_manufacturer ................... [RUN]
+[0m10:25:39.301537 [info ] [Thread-7 (]: 22 of 22 START test not_null_marts_acea_metrics_region ......................... [RUN]
+[0m10:25:39.301537 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_int_acea_data_id.94eff438ef, now test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46)
+[0m10:25:39.301537 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_int_acea_data_region.3f7bb43367, now test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788)
+[0m10:25:39.301537 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.unique_int_acea_data_id.0797700902, now test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2)
+[0m10:25:39.301537 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly test.agentic_workflow_project.not_null_int_acea_data_units.214d59c620, now test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f)
+[0m10:25:39.301537 [debug] [Thread-5 (]: Began compiling node test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46
+[0m10:25:39.301537 [debug] [Thread-2 (]: Began compiling node test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788
+[0m10:25:39.301537 [debug] [Thread-4 (]: Began compiling node test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2
+[0m10:25:39.301537 [debug] [Thread-7 (]: Began compiling node test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f
+[0m10:25:39.313758 [debug] [Thread-5 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46"
+[0m10:25:39.316982 [debug] [Thread-2 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788"
+[0m10:25:39.321934 [debug] [Thread-4 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2"
+[0m10:25:39.324403 [debug] [Thread-7 (]: Writing injected SQL for node "test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f"
+[0m10:25:39.326912 [debug] [Thread-5 (]: Began executing node test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46
+[0m10:25:39.330081 [debug] [Thread-5 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_MARTS_ACEA_METRICS_DATE"
+[0m10:25:39.334041 [debug] [Thread-4 (]: Began executing node test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2
+[0m10:25:39.334041 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46"
+[0m10:25:39.334041 [debug] [Thread-7 (]: Began executing node test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f
+[0m10:25:39.334041 [debug] [Thread-2 (]: Began executing node test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788
+[0m10:25:39.338211 [debug] [Thread-4 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_MARTS_ACEA_METRICS_MANUFACTURER"
+[0m10:25:39.338211 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_MARTS_ACEA_METRICS_DATE" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46"} */
+[0m10:25:39.338211 [debug] [Thread-7 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_MARTS_ACEA_METRICS_REGION"
+[0m10:25:39.348249 [debug] [Thread-2 (]: Applying DROP to: "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_MARTS_ACEA_METRICS_FREQUENCY"
+[0m10:25:39.348249 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2"
+[0m10:25:39.351515 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f"
+[0m10:25:39.351515 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788"
+[0m10:25:39.351515 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_MARTS_ACEA_METRICS_MANUFACTURER" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2"} */
+[0m10:25:39.354437 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_MARTS_ACEA_METRICS_REGION" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f"} */
+[0m10:25:39.354437 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788: drop table if exists "TIL_DATA_ENGINEERING"."DBT_CYI_ACEA_DBT_TEST__AUDIT"."NOT_NULL_MARTS_ACEA_METRICS_FREQUENCY" cascade
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788"} */
+[0m10:25:39.607046 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.257 seconds
+[0m10:25:39.614505 [debug] [Thread-7 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_region
+[0m10:25:39.617136 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f"
+[0m10:25:39.617136 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_region
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.marts_acea_metrics
+where region is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f"} */;
+[0m10:25:39.640980 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.287 seconds
+[0m10:25:39.640980 [debug] [Thread-4 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_manufacturer
+[0m10:25:39.640980 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2"
+[0m10:25:39.640980 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_manufacturer
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.marts_acea_metrics
+where manufacturer is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2"} */;
+[0m10:25:39.649596 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.295 seconds
+[0m10:25:39.653869 [debug] [Thread-2 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_frequency
+[0m10:25:39.655877 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788"
+[0m10:25:39.655877 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_frequency
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.marts_acea_metrics
+where frequency is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788"} */;
+[0m10:25:39.674156 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.326 seconds
+[0m10:25:39.674156 [debug] [Thread-5 (]: Applying CREATE to: TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_date
+[0m10:25:39.674156 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46"
+[0m10:25:39.674156 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46: create or replace transient table TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_date
+    
+    
+    
+    as (
+    
+  
+    
+    
+
+
+
+select *
+from TIL_DATA_ENGINEERING.dbt_cyi_acea.marts_acea_metrics
+where date is null
+
+
+
+  
+  
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46"} */;
+[0m10:25:40.307230 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.657 seconds
+[0m10:25:40.315500 [debug] [Thread-2 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788"
+[0m10:25:40.316999 [debug] [Thread-2 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788"
+[0m10:25:40.316999 [debug] [Thread-2 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_frequency
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788"} */
+[0m10:25:40.328933 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.712 seconds
+[0m10:25:40.328933 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.684 seconds
+[0m10:25:40.331587 [debug] [Thread-7 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f"
+[0m10:25:40.333594 [debug] [Thread-4 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2"
+[0m10:25:40.337603 [debug] [Thread-7 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f"
+[0m10:25:40.337603 [debug] [Thread-4 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2"
+[0m10:25:40.340547 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.660 seconds
+[0m10:25:40.342184 [debug] [Thread-7 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_region
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f"} */
+[0m10:25:40.342954 [debug] [Thread-4 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_manufacturer
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2"} */
+[0m10:25:40.342954 [debug] [Thread-5 (]: Writing runtime sql for node "test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46"
+[0m10:25:40.350224 [debug] [Thread-5 (]: Using snowflake connection "test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46"
+[0m10:25:40.351891 [debug] [Thread-5 (]: On test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from TIL_DATA_ENGINEERING.dbt_cyi_acea_dbt_test__audit.not_null_marts_acea_metrics_date
+    
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "default", "target_name": "dev", "node_id": "test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46"} */
+[0m10:25:40.557692 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.240 seconds
+[0m10:25:40.557692 [info ] [Thread-2 (]: 20 of 22 PASS not_null_marts_acea_metrics_frequency ............................ [[32mPASS[0m in 1.26s]
+[0m10:25:40.565834 [debug] [Thread-2 (]: Finished running node test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788
+[0m10:25:40.574263 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.235 seconds
+[0m10:25:40.586241 [info ] [Thread-7 (]: 22 of 22 PASS not_null_marts_acea_metrics_region ............................... [[32mPASS[0m in 1.28s]
+[0m10:25:40.586241 [debug] [Thread-7 (]: Finished running node test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f
+[0m10:25:40.617075 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.272 seconds
+[0m10:25:40.622727 [info ] [Thread-4 (]: 21 of 22 PASS not_null_marts_acea_metrics_manufacturer ......................... [[32mPASS[0m in 1.32s]
+[0m10:25:40.622727 [debug] [Thread-4 (]: Finished running node test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2
+[0m10:25:40.634242 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.285 seconds
+[0m10:25:40.639616 [info ] [Thread-5 (]: 19 of 22 PASS not_null_marts_acea_metrics_date ................................. [[32mPASS[0m in 1.34s]
+[0m10:25:40.639616 [debug] [Thread-5 (]: Finished running node test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46
+[0m10:25:40.647843 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m10:25:40.649863 [debug] [MainThread]: Connection 'list_TIL_DATA_ENGINEERING' was left open.
+[0m10:25:40.649863 [debug] [MainThread]: On list_TIL_DATA_ENGINEERING: Close
+[0m10:25:41.033519 [debug] [MainThread]: Connection 'list_TIL_DATA_ENGINEERING' was left open.
+[0m10:25:41.034407 [debug] [MainThread]: On list_TIL_DATA_ENGINEERING: Close
+[0m10:25:41.470279 [debug] [MainThread]: Connection 'list_TIL_DATA_ENGINEERING_dbt_cyi_acea_dbt_test__audit' was left open.
+[0m10:25:41.473353 [debug] [MainThread]: On list_TIL_DATA_ENGINEERING_dbt_cyi_acea_dbt_test__audit: Close
+[0m10:25:41.838090 [debug] [MainThread]: Connection 'list_TIL_DATA_ENGINEERING_dbt_cyi_acea' was left open.
+[0m10:25:41.840109 [debug] [MainThread]: On list_TIL_DATA_ENGINEERING_dbt_cyi_acea: Close
+[0m10:25:42.783953 [debug] [MainThread]: Connection 'test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788' was left open.
+[0m10:25:42.785747 [debug] [MainThread]: On test.agentic_workflow_project.not_null_marts_acea_metrics_frequency.589e259788: Close
+[0m10:25:43.151127 [debug] [MainThread]: Connection 'test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2' was left open.
+[0m10:25:43.151127 [debug] [MainThread]: On test.agentic_workflow_project.not_null_marts_acea_metrics_manufacturer.843c326db2: Close
+[0m10:25:43.593583 [debug] [MainThread]: Connection 'test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46' was left open.
+[0m10:25:43.593583 [debug] [MainThread]: On test.agentic_workflow_project.not_null_marts_acea_metrics_date.085ad60c46: Close
+[0m10:25:43.983038 [debug] [MainThread]: Connection 'model.agentic_workflow_project.marts_acea_metrics' was left open.
+[0m10:25:43.983038 [debug] [MainThread]: On model.agentic_workflow_project.marts_acea_metrics: Close
+[0m10:25:44.321543 [debug] [MainThread]: Connection 'test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f' was left open.
+[0m10:25:44.323131 [debug] [MainThread]: On test.agentic_workflow_project.not_null_marts_acea_metrics_region.aed5883d3f: Close
+[0m10:25:44.676319 [debug] [MainThread]: Connection 'test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e' was left open.
+[0m10:25:44.676319 [debug] [MainThread]: On test.agentic_workflow_project.not_null_int_acea_data_inserted_at.8413550b9e: Close
+[0m10:25:45.033022 [info ] [MainThread]: 
+[0m10:25:45.033022 [info ] [MainThread]: Finished running 1 table model, 19 data tests, 2 view models in 0 hours 0 minutes and 33.30 seconds (33.30s).
+[0m10:25:45.041513 [debug] [MainThread]: Command end result
+[0m10:25:45.067503 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\dbt\target\manifest.json
+[0m10:25:45.077670 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\dbt\target\semantic_manifest.json
+[0m10:25:45.149576 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\dbt\target\run_results.json
+[0m10:25:45.151686 [info ] [MainThread]: 
+[0m10:25:45.153044 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m10:25:45.153044 [info ] [MainThread]: 
+[0m10:25:45.153044 [info ] [MainThread]: Done. PASS=22 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=22
+[0m10:25:45.153044 [debug] [MainThread]: Command `dbt build` succeeded at 10:25:45.153044 after 45.97 seconds
+[0m10:25:45.158768 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CB6347740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CB6382240>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015CDB267B30>]}
+[0m10:25:45.158768 [debug] [MainThread]: Flushing usage events
+[0m10:25:45.850060 [debug] [MainThread]: An error was encountered while trying to flush usage events

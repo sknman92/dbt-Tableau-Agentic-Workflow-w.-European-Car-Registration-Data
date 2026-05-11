@@ -181,3 +181,47 @@ botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with t
 2026-02-23 16:12:20,927 - INFO - Published marts_acea.hyper (ID: 72aa7c33-63e2-45cc-aa6d-15ed24e91cb6)
 2026-02-23 16:12:20,928 - INFO - Datasource published to project: Charles
 2026-02-23 16:12:21,043 - INFO - Signed out
+2026-05-11 10:24:19,988 - INFO - root - Found 21 ACEA Press_release CSV files for upload
+2026-05-11 10:24:20,429 - INFO - snowflake.connector.connection - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26200-SP0
+2026-05-11 10:24:20,429 - INFO - snowflake.connector.connection - Connecting to GLOBAL Snowflake domain
+2026-05-11 10:24:22,350 - WARNING - botocore.credentials - Refreshing temporary credentials failed during mandatory refresh period.
+Traceback (most recent call last):
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 600, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 750, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 760, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 2328, in _get_credentials
+    raise UnauthorizedSSOTokenError()
+botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session run aws sso login with the corresponding profile.
+2026-05-11 10:24:32,562 - INFO - root - Uploaded 5944 records to Snowflake and deleted local CSV files
+2026-05-11 10:26:15,777 - INFO - snowflake.connector.connection - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26200-SP0
+2026-05-11 10:26:15,777 - INFO - snowflake.connector.connection - Connecting to GLOBAL Snowflake domain
+2026-05-11 10:26:16,085 - WARNING - botocore.credentials - Refreshing temporary credentials failed during mandatory refresh period.
+Traceback (most recent call last):
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 600, in _protected_refresh
+    metadata = self._refresh_using()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 750, in fetch_credentials
+    return self._get_cached_credentials()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 760, in _get_cached_credentials
+    response = self._get_credentials()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CharlesYi\Documents\GitHub\Agentic Workflow Project_7.2.26\.venv\Lib\site-packages\botocore\credentials.py", line 2328, in _get_credentials
+    raise UnauthorizedSSOTokenError()
+botocore.exceptions.UnauthorizedSSOTokenError: The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session run aws sso login with the corresponding profile.
+2026-05-11 10:26:20,919 - INFO - root - Data read from Snowflake: 27828 rows, 6 columns
+2026-05-11 10:26:23,073 - INFO - root - Hyper file created at: hyper_files/marts_acea.hyper
+2026-05-11 10:26:25,149 - INFO - TSC - versions: 3.27, 2.4
+2026-05-11 10:26:25,405 - INFO - TSC - Signed into https://tableauserver.theinformationlab.co.uk/ as user with id eda97a57-9ed7-4f72-a9d8-189e42a23c42
+2026-05-11 10:26:25,405 - INFO - TSC - Querying all projects on site
+2026-05-11 10:26:25,611 - INFO - root - Project retrieved: Charles
+2026-05-11 10:26:25,611 - INFO - TSC - Publishing marts_acea.hyper to server
+2026-05-11 10:26:27,633 - INFO - TSC - Published marts_acea.hyper (ID: 72aa7c33-63e2-45cc-aa6d-15ed24e91cb6)
+2026-05-11 10:26:27,633 - INFO - root - Datasource published to project: Charles
+2026-05-11 10:26:27,825 - INFO - TSC - Signed out

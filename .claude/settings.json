@@ -1,0 +1,3 @@
+{
+  "enabledMcpjsonServers": ["tableau", "dbt"]
+}
