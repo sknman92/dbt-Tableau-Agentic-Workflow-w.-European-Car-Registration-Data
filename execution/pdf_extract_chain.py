@@ -98,7 +98,6 @@ Set pdf_month="{pdf_month}" on every row.
 Return units as plain integers — strip commas and any footnote markers (1,2,3...).
 """
 
-
 def get_extraction_chain():
     """
     Returns a stateless, reusable runnable chain:  dict  →  ACEAExtraction
@@ -116,7 +115,7 @@ def get_extraction_chain():
     structured_llm = llm.with_structured_output(ACEAExtraction)
 
     prompt = ChatPromptTemplate.from_messages(
-        [
+        [   
             ("system", _SYSTEM_PROMPT),
             ("user", "{text}"),
         ]

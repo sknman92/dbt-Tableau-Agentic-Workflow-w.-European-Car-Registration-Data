@@ -1,3 +1,14 @@
+"""
+
+Selectively exposes the Tableau MCP query-datasource tool to the AI 
+model.
+
+The AI uses this tool to translate natural language requests into VizQL 
+queries, providing a controlled interface between the user and Tableau's data 
+layer.
+
+"""
+
 import asyncio
 from collections.abc import Callable, Awaitable
 from typing import Any, Optional
@@ -19,6 +30,7 @@ _TABLEAU_MCP_PARAMS = StdioServerParameters(
     ],
 )
 
+# the tools that we want to expose
 _EXPOSED_TOOLS = {"query-datasource"}
 
 

@@ -1,5 +1,6 @@
 """
 LangChain agentic orchestrator for the ACEA pipeline.
+Supplements/replaces the directives/pdf_scrape.md
 
 The agent wraps each execution script as a structured @tool and uses
 Claude (via langchain-anthropic) + LangGraph's ReAct loop to decide
@@ -24,10 +25,7 @@ from langgraph.prebuilt import create_react_agent
 
 dotenv.load_dotenv()
 
-
-# ---------------------------------------------------------------------------
 # Tools — each wraps one execution script / pipeline step
-# ---------------------------------------------------------------------------
 
 @tool
 def run_webscrape(date_range_start: str = "2025-01-01", date_range_end: str = "2025-12-31") -> str:
@@ -129,27 +127,6 @@ def run_publish_tableau(project_name: str = "Charles") -> str:
         return f"Tableau datasource published to project '{project_name}'."
     except Exception as e:
         return f"Tableau publish FAILED: {e}"
-
-
-@tool
-def search_docs(query: str) -> str:
-    """
-    Search the ACEA vector store for relevant data using a natural language query.
-    Use this to answer questions about car registrations, manufacturers, or regions
-    without running the full pipeline.
-
-    Args:
-        query: Natural language question, e.g. 'BMW registrations EU Jan 2025'
-
-    Returns:
-        Claude's answer grounded in the retrieved PDF chunks.
-    """
-    try:
-        from execution.rag_chain import ask
-        return ask(query)
-    except Exception as e:
-        return f"search_docs FAILED: {e}"
-
 
 @tool
 def verify_csvs(data_dir: str = "data") -> str:
@@ -347,7 +324,6 @@ PIPELINE_TOOLS = [
     run_upload_snowflake,
     run_dbt_build,
     run_publish_tableau,
-    search_docs,
     verify_csvs,
     create_analysis_folder,
     save_query_csv,
@@ -386,9 +362,6 @@ For any data question or chart request, follow this sequence:
 All triage output (CSV, PNG, metadata) must be saved in the same run folder. Never save to temp dirs.
 If the folder already exists, create_analysis_folder will auto-append a numeric suffix.
 
-## Other tools
-  - search_docs  — vector search over ACEA PDFs for questions about raw source data
-
 ## Rules
 - Only run the steps the user asks for. "Full pipeline" means steps 1–6 in order.
 - After verify_csvs (step 3), always stop and wait for explicit user approval before uploading.
@@ -407,6 +380,8 @@ async def _run_async(prompt: str) -> None:
     from langchain_core.tools import BaseTool
 
     async def _run_with_tools(mcp_tools: list[BaseTool]) -> None:
+        # building react agent with tools defined above + query-datasource tool from
+        # Tableau MCP server
         agent = build_agent(mcp_tools)
         print(f"\n[agent] prompt: {prompt}\n{'-' * 60}")
         try:
