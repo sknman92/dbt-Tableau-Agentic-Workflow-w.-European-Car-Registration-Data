@@ -9,6 +9,10 @@ Uses the Tableau VizQL Data Service REST API to:
 
 Usage:
     python -m execution.vizql_chain "Top 5 manufacturers by total registrations"
+
+
+Before executing VizQL data service via Tableau MCP to answer user prompts about
+the data, use this function to return the dimensions and their distinct values.
 """
 
 from __future__ import annotations
@@ -25,7 +29,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 dotenv.load_dotenv()
 
-DATASOURCE_NAME = "marts_acea_metrics"
+DATASOURCE_NAME = "marts_acea"
 
 # ---------------------------------------------------------------------------
 # Step 1 — Auth
@@ -71,92 +75,6 @@ def _get_datasource_luid(server: TSC.Server) -> str:
         )
     return datasources[0].id
 
-
-# ---------------------------------------------------------------------------
-# Step 3 — Read field metadata from VizQL Data Service
-# ---------------------------------------------------------------------------
-
-def _read_metadata(server_url: str, token: str, luid: str) -> list[dict]:
-    """
-    Call POST /api/v1/vizql-data-service/read-metadata.
-
-    Returns the list of field metadata dicts (fieldCaption, dataType,
-    defaultAggregation, columnClass, ...).
-    """
-    url = f"{server_url}/api/v1/vizql-data-service/read-metadata"
-    resp = requests.post(
-        url,
-        json={"datasource": {"datasourceLuid": luid}},
-        headers={"X-Tableau-Auth": token},
-        timeout=30,
-    )
-    resp.raise_for_status()
-    return resp.json().get("data", [])
-
-
-# ---------------------------------------------------------------------------
-# Step 4 — NL → VizQL query (Claude Haiku)
-# ---------------------------------------------------------------------------
-
-_NL_TO_VIZQL_PROMPT = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            """You are a VizQL query builder for the ACEA automotive registration dataset.
-
-Given a natural-language question and the list of available datasource fields below,
-output a JSON object with the following structure:
-
-{{
-  "fields": [
-    {{"fieldCaption": "<exact caption>"}},                          // dimension
-    {{"fieldCaption": "<exact caption>", "function": "<AGG>"}}      // measure
-  ],
-  "filters": []   // optional — include only if the question requires filtering
-}}
-
-Aggregation functions: SUM, AVG, COUNT, COUNTD, MIN, MAX, MEDIAN.
-Dimension fields (strings, dates) must NOT have a "function" key.
-Measure fields (numbers) MUST have a "function" key.
-Field captions must match EXACTLY one of the values listed below.
-
-Available fields:
-{field_list}
-
-Output ONLY the raw JSON object. No markdown, no explanation.""",
-        ),
-        ("user", "{question}"),
-    ]
-)
-
-
-def _build_vizql_query(nl_query: str, fields_metadata: list[dict]) -> dict:
-    """Use Claude Haiku to translate a natural-language query into a VizQL query dict."""
-    field_list = "\n".join(
-        f"  fieldCaption={f.get('fieldCaption', '?')!r:40s}  "
-        f"dataType={f.get('dataType', '?'):10s}  "
-        f"defaultAggregation={f.get('defaultAggregation', 'NONE')}"
-        for f in fields_metadata
-        if f.get("fieldCaption")
-    )
-
-    llm = ChatAnthropic(model="claude-haiku-4-5-20251001", temperature=0)
-    chain = _NL_TO_VIZQL_PROMPT | llm
-    response = chain.invoke({"question": nl_query, "field_list": field_list})
-    text = response.content if hasattr(response, "content") else str(response)
-
-    # Strip markdown fences if the model wraps the JSON
-    text = text.strip()
-    if text.startswith("```"):
-        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-
-    return json.loads(text)
-
-
-# ---------------------------------------------------------------------------
-# Step 5 — Execute the query
-# ---------------------------------------------------------------------------
-
 def _query_datasource(server_url: str, token: str, luid: str, query: dict) -> list[dict]:
     """
     Call POST /api/v1/vizql-data-service/query-datasource.
@@ -181,45 +99,136 @@ def _query_datasource(server_url: str, token: str, luid: str, query: dict) -> li
     resp.raise_for_status()
     return resp.json().get("data", [])
 
+# ---------------------------------------------------------------------------
+# Step 3 — Read field metadata from VizQL Data Service
+# ---------------------------------------------------------------------------
+
+def _read_metadata(server_url: str, token: str, luid: str) -> list[dict]:
+    """
+    Call POST /api/v1/vizql-data-service/read-metadata.
+
+    Returns the list of field metadata dicts (fieldCaption, dataType,
+    defaultAggregation, columnClass, ...).
+    """
+    url = f"{server_url}/api/v1/vizql-data-service/read-metadata"
+    resp = requests.post(
+        url,
+        json={"datasource": {"datasourceLuid": luid}},
+        headers={"X-Tableau-Auth": token},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return resp.json().get("data", [])
+
+def _read_dimension_values(server_url: str, token: str, luid: str, field_caption: str = 'REGION')\
+    -> list:
+    """Return distinct values for a single dimension field"""
+
+    query = {"fields": [{"fieldCaption": field_caption}]}
+
+    rows = _query_datasource(server_url, token, luid, query)
+
+    distinct_values = [row.get(field_caption) for row in rows]
+
+    return distinct_values
 
 # ---------------------------------------------------------------------------
-# Step 6 — Format results
+# Step 4 — NL → VizQL query (Claude Haiku)
 # ---------------------------------------------------------------------------
 
-def _format_rows(rows: list[dict], max_rows: int = 50) -> str:
-    if not rows:
-        return "Query returned no data."
-    headers = list(rows[0].keys())
-    col_widths = [max(len(h), max(len(str(r.get(h, ""))) for r in rows[:max_rows])) for h in headers]
-    sep = " | "
+DIMENSION_FIELDS = ["REGION", "MANUFACTURER", "FREQUENCY", "Measure"]
 
-    def fmt_row(row):
-        return sep.join(str(row.get(h, "")).ljust(w) for h, w in zip(headers, col_widths))
+_NL_TO_VIZQL_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            """You are helping to build a VizQL query for the ACEA automotive registration dataset.
 
-    lines = [sep.join(h.ljust(w) for h, w in zip(headers, col_widths))]
-    lines.append("-" * len(lines[0]))
-    lines.extend(fmt_row(r) for r in rows[:max_rows])
-    if len(rows) > max_rows:
-        lines.append(f"... ({len(rows) - max_rows} more rows not shown)")
-    return "\n".join(lines)
+Given a natural-language question, output a JSON object with this structure:
+
+{{
+  "fields": [
+    {{"fieldCaption": "<exact caption>"}},
+    {{"fieldCaption": "<exact caption>", "function": "<AGG>", "sortDirection": "DESC", "sortPriority": 1}}
+  ],
+  "filters": [
+    {{
+      "field": {{"fieldCaption": "<exact caption>"}},
+      "filterType": "SET",
+      "values": ["<exact value>"],
+      "context": true
+    }}
+  ]
+}}
+
+Aggregation functions: SUM, AVG, COUNT, COUNTD, MIN, MAX, MEDIAN.
+Dimension fields must NOT have a "function" key. Measure fields MUST have a "function" key.
+Filters MUST use filterType "SET" with "field" and "values" as a list. Never use bare "fieldCaption"/"value" keys at the filter level.
+Field captions and filter values must match EXACTLY from the available fields below.
+
+IMPORTANT — data model: All numeric data lives in the single field "Value". The "Measure" dimension
+specifies what kind of metric each row represents (e.g. UNITS, YTD, YTD_PoP, TTM_PoP, etc.).
+Never use a Measure value (like YTD_PoP, UNITS, TTM) as a fieldCaption — they are always filter
+values on the "Measure" field. Always set "context": true on Measure and REGION filters.
+
+Available fields:
+{fields_metadata}
+
+Distinct values for each dimension (use these EXACT strings in filters):
+{dimension_values}
+
+Output ONLY the raw JSON object. No markdown, no explanation."""
+        ),
+        ("user", "{question}"),
+    ]
+)
+
+
+def _build_vizql_query(nl_query: str, fields_metadata: list, dimension_values: dict) -> str:
+    """Use Claude Haiku to translate a natural-language query into a VizQL query dict."""
+    fields_str = "\n".join(
+        f"  {f.get('fieldCaption')} — {f.get('dataType', '?')} ({f.get('columnClass', '?')})"
+        for f in fields_metadata if f.get("fieldCaption")
+    )  
+    values_str = "\n".join(
+        f"  {field}: {values}" for field, values in dimension_values.items()
+    )
+
+    llm = ChatAnthropic(model="claude-haiku-4-5-20251001", temperature=0)
+    chain = _NL_TO_VIZQL_PROMPT | llm
+    response = chain.invoke({
+        "question": nl_query,
+        "fields_metadata": fields_str,
+        "dimension_values": values_str,
+    })
+    text = response.content if hasattr(response, "content") else str(response)
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+    return text
+
+
 
 
 # ---------------------------------------------------------------------------
 # Public entry point
 # ---------------------------------------------------------------------------
 
-def query_vizql(nl_query: str) -> str:
+def query_vizql(nl_query: str = 'Who are the top ten manufacturer in the EU region by units sold?'):
     """
-    Translate *nl_query* into a VizQL structured query, execute it against the
-    published Tableau datasource, and return a formatted table string.
+    Translate *nl_query* into a VizQL structured query and return it as a string.
     """
     server, token, server_url = _sign_in()
     try:
         luid = _get_datasource_luid(server)
         fields_metadata = _read_metadata(server_url, token, luid)
-        vizql_query = _build_vizql_query(nl_query, fields_metadata)
-        rows = _query_datasource(server_url, token, luid, vizql_query)
-        return _format_rows(rows)
+        print(f"Fetched fields metadata: {fields_metadata}")
+        dimension_values = {
+            field: _read_dimension_values(server_url, token, luid, field)
+            for field in DIMENSION_FIELDS
+        }
+        print(f"Fetched dimension_values: {dimension_values}")
+        return _build_vizql_query(nl_query, fields_metadata, dimension_values)
     finally:
         server.auth.sign_out()
 
@@ -229,11 +238,4 @@ def query_vizql(nl_query: str) -> str:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    question = (
-        " ".join(sys.argv[1:])
-        if len(sys.argv) > 1
-        else "Top 5 manufacturers by total registrations"
-    )
-    print(f"\nQ: {question}\n{'-' * 60}")
-    print(query_vizql(question))
-    print("-" * 60)
+    query_vizql()
