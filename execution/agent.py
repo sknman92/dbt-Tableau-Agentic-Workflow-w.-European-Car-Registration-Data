@@ -157,6 +157,28 @@ def verify_csvs(data_dir: str = "data") -> str:
         )
     return "\n\n".join(parts)
 
+@tool
+def construct_vizql_query(nl_query: str):
+    """
+    Before constructing a VizQL query to answer user prompt about the data,
+    use this tool to help create a VizQL query that will properly answer
+    user questions.
+
+    Args:
+        nl_query: user question
+    
+    Returns: 
+        VizQL query to feed into Tableau MCP's query_datasource tool.    
+
+    """
+
+    try:
+        from execution.vizql_chain import query_vizql
+        vizql_query = query_vizql(nl_query)
+        return vizql_query
+
+    except Exception as e:
+        raise e
 
 @tool
 def create_analysis_folder(title: str) -> str:
@@ -234,8 +256,10 @@ def generate_plot(
         Path of the saved PNG file.
     """
     import os
-    import pandas as pd
+    import matplotlib
+    matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    import pandas as pd
     import seaborn as sns
 
     df = pd.read_csv(csv_path)
@@ -325,6 +349,7 @@ PIPELINE_TOOLS = [
     run_dbt_build,
     run_publish_tableau,
     verify_csvs,
+    construct_vizql_query,
     create_analysis_folder,
     save_query_csv,
     generate_plot,
@@ -344,16 +369,9 @@ SYSTEM_PROMPT = """You are the orchestration layer of the ACEA automotive data p
 
 ## Data triage (LUID: 72aa7c33-63e2-45cc-aa6d-15ed24e91cb6)
 
-Datasource fields — use these EXACT names in query-datasource:
-  MANUFACTURER  — dimension (string)
-  REGION        — dimension (string)
-  DATE          — dimension (datetime)
-  FREQUENCY     — dimension (string)
-  Measure       — dimension (string)
-  Value         — measure   (SUM / AVG / COUNT / etc.)
-
 For any data question or chart request, follow this sequence:
-  a. query-datasource         — run a structured VizQL query using the exact field names above
+  a. construct_vizql_query    — always call this first; it returns the exact VizQL query to use
+  b. query-datasource         — pass the output of construct_vizql_query as the query argument verbatim; do not build the query yourself                     
   c. create_analysis_folder   — create analyses/<today>/<title>/ (snake_case title, no timestamp in date)
   d. save_query_csv           — save query rows as CSV in the run folder
   e. generate_plot            — generate a matplotlib PNG from the CSV (bar/line/scatter)
@@ -370,7 +388,7 @@ If the folder already exists, create_analysis_folder will auto-append a numeric 
 """
 
 
-def build_agent(mcp_tools: list) -> object:
+def build_agent(mcp_tools: list = None) -> object:
     llm = ChatAnthropic(model="claude-sonnet-4-6", temperature=0)
     return create_react_agent(llm, PIPELINE_TOOLS + mcp_tools, prompt=SYSTEM_PROMPT)
 
@@ -400,10 +418,27 @@ async def _run_async(prompt: str) -> None:
     await with_tableau_tools(_run_with_tools)
 
 
+def run_agent(prompt: str) -> None:
+    agent = build_agent(mcp_tools=[])
+    print(f"\n[agent] prompt: {prompt}\n{'-' * 60}")
+    try:
+        for chunk in agent.stream({"messages": [("user", prompt)]}):
+            if "agent" in chunk:
+                for msg in chunk["agent"]["messages"]:
+                    print(msg.content) 
+            elif "tools" in chunk:
+                for msg in chunk["tools"]["messages"]:
+                    content = msg.content if isinstance(msg.content, str) else str(msg.content)
+                    print(f"[tool: {msg.name}] {content[:2000]}")
+    except Exception as e:
+        print(f"[error] {type(e).__name__}: {e}")
+    print("-" * 60)
+
+
 def run(prompt: str) -> None:
     asyncio.run(_run_async(prompt))
 
 
 if __name__ == "__main__":
-    prompt = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "What steps are available in this pipeline?"
+    prompt = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "Who are the top ten manufacturer in the EU region by units sold?"
     run(prompt)
