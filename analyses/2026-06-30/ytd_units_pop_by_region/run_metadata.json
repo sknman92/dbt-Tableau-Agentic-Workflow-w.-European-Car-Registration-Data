@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-06-30T20:38:40.613500",
+  "datasource_luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+  "query_summary": "YTD units sold by region, period over period (2023\u20132025), filtered on Measure = YTD_PoP, grouped by YEAR and REGION",
+  "filters": "Measure = YTD_PoP",
+  "notes": "Two regions returned: EU + EFTA + UK and European Union (EU). Years covered: 2023, 2024, 2025."
+}

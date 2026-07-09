@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-06-30T20:31:32.103575",
+  "datasource_luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+  "query_summary": "YTD units sold aggregated by region, filtered to Measure = YTD",
+  "filters": "Measure = YTD",
+  "notes": ""
+}

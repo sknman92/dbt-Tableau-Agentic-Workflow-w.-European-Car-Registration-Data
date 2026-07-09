@@ -158,7 +158,7 @@ def verify_csvs(data_dir: str = "data") -> str:
     return "\n\n".join(parts)
 
 @tool
-def construct_vizql_query(nl_query: str):
+async def construct_vizql_query(nl_query: str):
     """
     Before constructing a VizQL query to answer user prompt about the data,
     use this tool to help create a VizQL query that will properly answer
@@ -166,15 +166,15 @@ def construct_vizql_query(nl_query: str):
 
     Args:
         nl_query: user question
-    
-    Returns: 
-        VizQL query to feed into Tableau MCP's query_datasource tool.    
+
+    Returns:
+        VizQL query to feed into Tableau MCP's query_datasource tool.
 
     """
 
     try:
         from execution.vizql_chain import query_vizql
-        vizql_query = query_vizql(nl_query)
+        vizql_query = await query_vizql(nl_query)
         return vizql_query
 
     except Exception as e:
@@ -417,22 +417,6 @@ async def _run_async(prompt: str) -> None:
 
     await with_tableau_tools(_run_with_tools)
 
-
-def run_agent(prompt: str) -> None:
-    agent = build_agent(mcp_tools=[])
-    print(f"\n[agent] prompt: {prompt}\n{'-' * 60}")
-    try:
-        for chunk in agent.stream({"messages": [("user", prompt)]}):
-            if "agent" in chunk:
-                for msg in chunk["agent"]["messages"]:
-                    print(msg.content) 
-            elif "tools" in chunk:
-                for msg in chunk["tools"]["messages"]:
-                    content = msg.content if isinstance(msg.content, str) else str(msg.content)
-                    print(f"[tool: {msg.name}] {content[:2000]}")
-    except Exception as e:
-        print(f"[error] {type(e).__name__}: {e}")
-    print("-" * 60)
 
 
 def run(prompt: str) -> None:

@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-06-30T20:28:59.247694",
+  "datasource_luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+  "query_summary": "Top 10 manufacturers in the European Union by total units sold, aggregated across all available periods.",
+  "filters": "REGION = 'European Union (EU)', Measure = 'UNITS', TOP 10 by SUM(Value)",
+  "notes": ""
+}

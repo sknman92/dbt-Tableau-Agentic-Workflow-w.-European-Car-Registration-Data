@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-06-10T22:54:56.184363",
+  "datasource_luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+  "query_summary": "Average Units YoY by manufacturer, filtered to EU + EFTA + UK region",
+  "filters": "REGION = EU + EFTA + UK; Measure = UNITS_YoY",
+  "notes": "45 manufacturers returned, sorted descending by Avg Units YoY. BYD leads with +222%, Jaguar is the worst performer at -59%."
+}

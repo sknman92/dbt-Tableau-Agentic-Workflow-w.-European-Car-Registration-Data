@@ -13,15 +13,18 @@ Inspired by recent client work at a capital management firm.
 
 ## Natural Language First (Recommended)
 
-This workflow is designed to run end-to-end through **natural language chat with AI**.
+This workflow is designed to run end-to-end through \*\*natural language chThe agent (`execution/agent.py`) is a LangChain/LangGraph ReAct loop that wraps each pipeline step as a structured tool. It handles sequencing, error handling, and data triage automatically.
 
-You can ask the AI to execute the entire sequence (scrape, parse, upload, dbt build, Tableau publish, and triage plotting) without manually running each script.
+```powershell
+& "./.venv/Scripts/python.exe" -m execution.agent "Run the full ACEA pipeline end to end."
+```
 
 Example prompts:
 
 - "Run the full ACEA pipeline end to end."
 - "Refresh data, rebuild dbt, publish Tableau, then generate YTD triage plots."
-- "Triage monthly YTD units sold per manufacturer and save outputs to analyses."
+- "Show me top 10 manufacturers in the EU by units sold."
+- "Show me YTD period-over-period by region and save a bar chart."
 
 Use the command-based runbook below when you want manual control or debugging.
 
@@ -37,18 +40,12 @@ Set-Location "dbt"; & "../.venv/Scripts/dbt.exe" build; Set-Location ".."
 & "./.venv/Scripts/python.exe" execution/publish_tableau_datasource.py
 ```
 
-Then run triage plotting as needed:
-
-```powershell
-& "./.venv/Scripts/python.exe" execution/plot_monthly_ytd.py --title monthly_ytd_units_sold_per_manufacturer
-```
-
 ## Architecture
 
 This repo follows a 3-layer model:
 
 - **Directives** (`directives/`): SOP-style instructions (what to do)
-- **Orchestration** (AI agent): sequencing, error handling, decision-making
+- **Orchestration** (`execution/agent.py`): LangChain/LangGraph ReAct agent — sequencing, error handling, decision-making
 - **Execution** (`execution/`): deterministic Python scripts (doing the work)
 
 Reference: `agents.md`
@@ -67,46 +64,82 @@ flowchart LR
 	H --> I[(MARTS_ACEA_METRICS)]
 	I --> J[execution/publish_tableau_datasource.py]
 	J --> K[Tableau Datasource: marts_acea]
-	K --> L[Tableau MCP Query Export]
-	L --> M[analyses/YYYY-MM-DD/title/*.csv]
-	M --> N[execution/plot_monthly_ytd.py]
-	N --> O[analyses/YYYY-MM-DD/title/*.png + run_metadata.json]
+	K --> L[execution/vizql_chain.py]
+	L --> M[Tableau MCP query-datasource]
+	M --> N[analyses/YYYY-MM-DD/title/*.csv + *.png + run_metadata.json]
 ```
+
+## Agent Tools
+
+The agent exposes the following tools to the LLM:
+
+| Tool                       | Purpose                                                                       |
+| -------------------------- | ----------------------------------------------------------------------------- |
+| `run_webscrape`            | Download ACEA PDFs                                                            |
+| `run_pdf_scrape`           | Parse PDFs to schema-aligned CSVs                                             |
+| `verify_csvs`              | Preview data/ CSVs before upload                                              |
+| `run_upload_snowflake`     | Upload CSVs to Snowflake                                                      |
+| `run_dbt_build`            | Run `dbt build`                                                               |
+| `run_publish_tableau`      | Publish Hyper extract to Tableau Server                                       |
+| `construct_vizql_query`    | Translate NL question → VizQL query via Claude Haiku + live datasource schema |
+| `create_analysis_folder`   | Create `analyses/<date>/<title>/` run folder                                  |
+| `save_query_csv`           | Save query result rows as CSV                                                 |
+| `generate_plot`            | Generate matplotlib PNG from CSV                                              |
+| `save_run_metadata`        | Save run metadata JSON                                                        |
+| `query-datasource` _(MCP)_ | Execute VizQL query against Tableau datasource                                |
+
+### VizQL Query Chain
+
+`construct_vizql_query` calls `execution/vizql_chain.py`, which:
+
+1. Signs in to Tableau Server and resolves the datasource LUID
+2. Reads live field metadata and distinct dimension values
+3. Fetches the `query-datasource` tool JSON schema from the Tableau MCP server
+4. Passes all context to **Claude Haiku** to translate the NL question into a valid VizQL query
+5. Returns the structured query for the agent to pass to `query-datasource`
 
 ## Function Ownership
 
 ### 1) AI build
 
 - `execution/pdf_scrape.py`
-- `execution/plot_monthly_ytd.py`
+- `execution/pdf_extract_chain.py`
 - `execution/webscrape.py`
+- `execution/mcp_utils.py`
 
 ### 2) Self built
 
 - `execution/publish_tableau_datasource.py`
 - `execution/upload_snowflake.py`
 - `execution/logger.py`
+- `execution/vizql_chain.py`
+- `execution/agent.py`
 - All dbt models under `dbt/models/`
 
 ## Repository Structure
 
-- `execution/` — operational scripts (`webscrape.py`, `pdf_scrape.py`, `upload_snowflake.py`, `publish_tableau_datasource.py`, `plot_monthly_ytd.py`)
+- `execution/` — operational scripts and agent
+  - `agent.py` — LangChain/LangGraph ReAct agent orchestrator
+  - `vizql_chain.py` — NL → VizQL query chain (Haiku + live schema)
+  - `mcp_utils.py` — Tableau MCP session management
+  - `pdf_extract_chain.py` — LLM-powered PDF row extraction
+  - `webscrape.py`, `pdf_scrape.py`, `upload_snowflake.py`, `publish_tableau_datasource.py`, `logger.py`
 - `directives/` — workflow SOPs (currently `pdf_scrape.md`)
 - `dbt/` — dbt project (`stg`, `int`, `marts`)
 - `schema/` — schema definitions by source (for example `ACEA.csv`)
 - `PDFs/` — downloaded PDFs
 - `data/` — intermediate CSVs
-- `analyses/` — triage outputs and plots
-- `.vscode/mcp.json` — MCP server config
+- `analyses/` — triage outputs (CSV, PNG, run_metadata.json)
+- `tableau-mcp/` — Tableau MCP server (Node.js)
+- `.vscode/start-tableau-mcp.ps1` — MCP server launcher
 - `.vscode/.env` — local MCP secrets/config (including Tableau PAT)
 
 ## Prerequisites
 
 - Windows + PowerShell
 - Python virtual environment in `.venv`
-- Node.js (required only for `tableau-mcp/`)
+- Node.js (required for `tableau-mcp/`)
 - dbt Core in project `.venv` (required)
-- dbt MCP server runtime (`uvx` in `.venv/Scripts/uvx.exe`, configured in `.vscode/mcp.json`)
 - Snowflake credentials in root `.env`
 - Tableau credentials for publishing in root `.env`
 - Tableau MCP credentials in `.vscode/.env`
@@ -115,11 +148,10 @@ flowchart LR
 
 - This project is designed to run with **dbt Core CLI** from `.venv`.
 - For Python model execution, prefer Core CLI (`../.venv/Scripts/dbt.exe`) over Fusion CLI in this repo.
-- dbt MCP is used for AI-driven dbt operations (for example codegen/docs/lineage workflows), while Core CLI remains the reliable execution path for builds in this project.
 
 ## Environment Configuration
 
-### 1) Root `.env` (Python scripts)
+### 1) Root `.env` (Python scripts + agent)
 
 Populate the following keys in `.env`:
 
@@ -132,8 +164,9 @@ Populate the following keys in `.env`:
 - `tableau_password`
 - `tableau_server`
 - `tableau_site`
+- `ANTHROPIC_API_KEY`
 
-### 2) VS Code MCP `.vscode/.env` (Tableau MCP)
+### 2) VS Code MCP `.vscode/.env` (Tableau MCP server)
 
 Populate:
 
@@ -144,7 +177,7 @@ Populate:
 - `PAT_VALUE`
 - `DEFAULT_LOG_LEVEL`
 
-`PAT_VALUE` is kept outside `mcp.json` in this file.
+`PAT_VALUE` is a Tableau Personal Access Token. PATs expire after ~30 days — regenerate and update this file when you see 401 errors from the MCP server.
 
 ## Setup
 
@@ -163,11 +196,10 @@ npm run build
 Set-Location ".."
 ```
 
-Verify dbt Core + dbt MCP prerequisites:
+Verify dbt Core:
 
 ```powershell
 & "./.venv/Scripts/dbt.exe" --version
-& "./.venv/Scripts/uvx.exe" --version
 ```
 
 ## End-to-End Runbook
@@ -229,43 +261,41 @@ Key models:
 & "./.venv/Scripts/python.exe" execution/publish_tableau_datasource.py
 ```
 
-## Data Triage Workflow
-
-Directive source: `directives/pdf_scrape.md` (Step 6).
-
-**Visualization standard:** Data visualization is driven by the `data-viz-plots` skill so plots keep a consistent theme, styling, and output quality across triage runs.
-
-### 6a) Query + export dataset
-
-Use Tableau MCP query tools to retrieve analysis data, then save CSV into an analysis run folder.
-
-### 6b) Plot artifacts
-
-Generate charts from exported CSV using the skill-driven plotting workflow (consistent theme and styling using data_viz_plots skill):
+### 6) Data triage (via agent)
 
 ```powershell
-& "./.venv/Scripts/python.exe" execution/plot_monthly_ytd.py --title monthly_ytd_units_sold_per_manufacturer
+& "./.venv/Scripts/python.exe" -m execution.agent "Show me top 10 manufacturers in the EU by units sold and save a bar chart."
 ```
+
+The agent queries the Tableau datasource via MCP, saves the CSV, generates a PNG, and writes `run_metadata.json` — all into `analyses/<date>/<title>/`.
+
+## Data Model
+
+The published `marts_acea` datasource uses an EAV (long) format:
+
+| Field          | Type     | Notes                                                                                       |
+| -------------- | -------- | ------------------------------------------------------------------------------------------- |
+| `DATE`         | DATETIME | Month-end date                                                                              |
+| `MANUFACTURER` | STRING   | e.g. `Volkswagen`                                                                           |
+| `REGION`       | STRING   | e.g. `European Union (EU)`                                                                  |
+| `FREQUENCY`    | STRING   | `Monthly` or `Quarterly`                                                                    |
+| `Measure`      | STRING   | `UNITS`, `YTD`, `YTD_PoP`, `TTM`, `TTM_PoP`, `TTM_YoY`, `UNITS_PoP`, `UNITS_YoY`, `YTD_YoY` |
+| `Value`        | REAL     | Numeric value for the measure                                                               |
+
+All VizQL queries filter on `Measure` to select the metric type, and aggregate `Value`.
 
 ## Analysis Output Convention
 
-Each triage request must write to:
+Each triage request writes to:
 
 `analyses/<YYYY-MM-DD>/<title>/`
 
 Rules:
 
 - Date has no timestamp
-- Title is a concise summary of the request
+- Title is a concise summary of the request (snake_case)
 - If folder exists, append suffix (for example `_2`)
 - Keep run artifacts together (CSV, PNG, metadata JSON)
-
-Example artifacts:
-
-- `monthly_ytd_units_sold_per_manufacturer.csv`
-- `monthly_ytd_units_all_manufacturers.png`
-- `monthly_ytd_units_top12_manufacturers.png`
-- `run_metadata.json`
 
 ## Logging
 
@@ -275,8 +305,8 @@ Example artifacts:
 ## Notes and Gotchas
 
 - Use dbt Core CLI from project `.venv` for Python model support.
-- dbt MCP does not replace dbt execution; keep using Core CLI for `dbt build` in this repository.
 - After MCP config edits, reload VS Code window to ensure MCP restarts with new environment.
+- Tableau PATs expire after ~30 days. A 401 error from `query-datasource` means the PAT in `.vscode/.env` needs regenerating.
 
 ## Useful Commands
 
@@ -287,6 +317,18 @@ Set-Location "dbt"
 & "../.venv/Scripts/dbt.exe" build -s marts_acea_metrics
 Set-Location ".."
 ```
+
+Test VizQL chain in isolation:
+
+````powershell
+& "./.venv/Scripts/python.exe" -m execution.vizql_chain "Top 5 manufacturers by YTD units in EU"
+run only marts model:
+
+```powershell
+Set-Location "dbt"
+& "../.venv/Scripts/dbt.exe" build -s marts_acea_metrics
+Set-Location ".."
+````
 
 Run plotting with custom top N:
 

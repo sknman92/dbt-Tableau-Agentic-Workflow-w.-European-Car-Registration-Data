@@ -9,11 +9,6 @@ from execution.logger import logger_setup
 dotenv.load_dotenv()
 logger = logger_setup()
 
-system_prompt = """
-Publish raw ACEA CSVs to snowflake. 
-
-CSVs: {csvs}
-"""
 
 def upload_to_snowflake(): 
 

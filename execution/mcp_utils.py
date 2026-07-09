@@ -11,7 +11,7 @@ layer.
 
 import asyncio
 from collections.abc import Callable, Awaitable
-from typing import Any, Optional
+from typing import Any
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 

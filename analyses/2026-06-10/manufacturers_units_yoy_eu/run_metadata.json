@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-06-10T22:51:01.880355",
+  "datasource_luid": "72aa7c33-63e2-45cc-aa6d-15ed24e91cb6",
+  "query_summary": "All manufacturers by units sold YoY (%) in the European Union, sorted descending.",
+  "filters": "REGION = \"European Union (EU)\", Measure = \"UNITS_YoY\"",
+  "notes": ""
+}

@@ -17,9 +17,7 @@ the data, use this function to return the dimensions and their distinct values.
 
 from __future__ import annotations
 
-import json
 import os
-import sys
 
 import dotenv
 import requests
@@ -133,7 +131,41 @@ def _read_dimension_values(server_url: str, token: str, luid: str, field_caption
     return distinct_values
 
 # ---------------------------------------------------------------------------
-# Step 4 — NL → VizQL query (Claude Haiku)
+# Step 4 — Retrieve JSON schema for tool call
+# ---------------------------------------------------------------------------
+
+import asyncio
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+from langchain_mcp_adapters.tools import load_mcp_tools
+
+_TABLEAU_MCP_PARAMS = StdioServerParameters(
+    command="powershell.exe",
+    args=[
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".vscode/start-tableau-mcp.ps1",
+    ],
+)
+
+_TOOL_SCHEMA: dict | None = None
+
+
+async def fetch_tool_json():
+    global _TOOL_SCHEMA
+    if _TOOL_SCHEMA is None:
+        async with stdio_client(_TABLEAU_MCP_PARAMS) as (read,write):
+            async with ClientSession(read,write) as session:
+                await session.initialize()
+                all_tools = await load_mcp_tools(session)
+                queryDatasource_tool = next(t for t in all_tools if t.name == 'query-datasource')
+                _TOOL_SCHEMA = queryDatasource_tool.args_schema.get("properties", {}).get("query", queryDatasource_tool.args_schema)
+    
+    return _TOOL_SCHEMA
+# ---------------------------------------------------------------------------
+# Step 5 — NL → VizQL query (Claude Haiku)
 # ---------------------------------------------------------------------------
 
 DIMENSION_FIELDS = ["REGION", "MANUFACTURER", "FREQUENCY", "Measure"]
@@ -144,22 +176,9 @@ _NL_TO_VIZQL_PROMPT = ChatPromptTemplate.from_messages(
             "system",
             """You are helping to build a VizQL query for the ACEA automotive registration dataset.
 
-Given a natural-language question, output a JSON object with this structure:
+Given a natural-language question, output a JSON object with structure as outlined in tool schema:
 
-{{
-  "fields": [
-    {{"fieldCaption": "<exact caption>"}},
-    {{"fieldCaption": "<exact caption>", "function": "<AGG>", "sortDirection": "DESC", "sortPriority": 1}}
-  ],
-  "filters": [
-    {{
-      "field": {{"fieldCaption": "<exact caption>"}},
-      "filterType": "SET",
-      "values": ["<exact value>"],
-      "context": true
-    }}
-  ]
-}}
+{schema}
 
 Aggregation functions: SUM, AVG, COUNT, COUNTD, MIN, MAX, MEDIAN.
 Dimension fields must NOT have a "function" key. Measure fields MUST have a "function" key.
@@ -184,7 +203,7 @@ Output ONLY the raw JSON object. No markdown, no explanation."""
 )
 
 
-def _build_vizql_query(nl_query: str, fields_metadata: list, dimension_values: dict) -> str:
+async def _build_vizql_query(nl_query: str, fields_metadata: list, dimension_values: dict) -> str:
     """Use Claude Haiku to translate a natural-language query into a VizQL query dict."""
     fields_str = "\n".join(
         f"  {f.get('fieldCaption')} — {f.get('dataType', '?')} ({f.get('columnClass', '?')})"
@@ -194,12 +213,15 @@ def _build_vizql_query(nl_query: str, fields_metadata: list, dimension_values: d
         f"  {field}: {values}" for field, values in dimension_values.items()
     )
 
+    schema = await fetch_tool_json()
+
     llm = ChatAnthropic(model="claude-haiku-4-5-20251001", temperature=0)
     chain = _NL_TO_VIZQL_PROMPT | llm
-    response = chain.invoke({
+    response = await chain.ainvoke({
         "question": nl_query,
         "fields_metadata": fields_str,
         "dimension_values": values_str,
+        "schema": schema
     })
     text = response.content if hasattr(response, "content") else str(response)
     text = text.strip()
@@ -214,7 +236,7 @@ def _build_vizql_query(nl_query: str, fields_metadata: list, dimension_values: d
 # Public entry point
 # ---------------------------------------------------------------------------
 
-def query_vizql(nl_query: str = 'Who are the top ten manufacturer in the EU region by units sold?'):
+async def query_vizql(nl_query: str = 'Who are the top ten manufacturer in the EU region by units sold?'):
     """
     Translate *nl_query* into a VizQL structured query and return it as a string.
     """
@@ -228,7 +250,7 @@ def query_vizql(nl_query: str = 'Who are the top ten manufacturer in the EU regi
             for field in DIMENSION_FIELDS
         }
         print(f"Fetched dimension_values: {dimension_values}")
-        return _build_vizql_query(nl_query, fields_metadata, dimension_values)
+        return await _build_vizql_query(nl_query, fields_metadata, dimension_values)
     finally:
         server.auth.sign_out()
 
@@ -238,4 +260,5 @@ def query_vizql(nl_query: str = 'Who are the top ten manufacturer in the EU regi
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    query_vizql()
+    asyncio.run(query_vizql())
+    
